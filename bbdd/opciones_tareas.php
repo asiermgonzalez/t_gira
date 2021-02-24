@@ -86,6 +86,10 @@ if (isset($_POST['asignar_tarea'])) {
     $opcion = 4;
 }
 
+if (isset($_GET['eliminar_tarea_asignada'])) {
+    $opcion = 5;
+}
+
 
 
 switch ($opcion) {
@@ -176,7 +180,7 @@ switch ($opcion) {
 
         $nombre = $_GET['nombre'];
         $usuario = $_POST['usuario'];
-        $cliente=$_POST['cliente'];
+        $cliente = $_POST['cliente'];
 
         $asignar_tarea = mysqli_query($conexion, "INSERT INTO tareas VALUES(NULL, '$usuario', '$nombre', '$cliente', curdate(), 'PENDIENTE')");
 
@@ -191,7 +195,33 @@ switch ($opcion) {
             $_SESSION['tarea_asignada_error'] = "ERROR";
         }
 
+        $conexion->close();
+
         header('Location:../tareas.php');
+
+        break;
+
+        /*********************************************** ELIMINAR TAREA ASIGNADA ************************************************/
+    case 5:
+
+        $id = $_GET['eliminar_tarea_asignada'];
+
+        $eliminar = mysqli_query($conexion, "DELETE FROM tareas WHERE id='$id'");
+
+        //Creamos una sesión para el mensaje de alerta
+        if ($eliminar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['eliminar_tarea_asignada'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['eliminar_tarea_asignada_error'] = "ERROR";
+        }
+
+        $conexion->close();
+
+        header('Location:../tareas_asignadas.php');
 
         break;
 }

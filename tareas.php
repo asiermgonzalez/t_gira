@@ -66,7 +66,7 @@ if (!isset($_SESSION['admin'])) {
     <form action="bbdd/opciones_tareas.php" method="POST">
         <div class="form-group mt-4">
             <label>Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre">
+            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre" required>
         </div>
 
         <div class="row mt-2">

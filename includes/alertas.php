@@ -62,6 +62,18 @@ function eliminar_alertas()
     if (isset($_SESSION['cliente_eliminado'])) {
         unset($_SESSION['cliente_eliminado']);
     }
+
+     //ALERTA TAREA ASIGNADA ELIMINADA
+     if (isset($_SESSION['eliminar_tarea_asignada'])) {
+        unset($_SESSION['eliminar_tarea_asignada']);
+    }
+
+     //ALERTA TAREA ASIGNADA ELIMINADA ERROR
+    if (isset($_SESSION['eliminar_tarea_asignada_error'])) {
+        unset($_SESSION['eliminar_tarea_asignada_error']);
+    }
+
+
 }
 
 function mostrar_alertas()
@@ -125,5 +137,15 @@ function mostrar_alertas()
     //ALERTA CLIENTE ELIMINADO
     if (isset($_SESSION['cliente_eliminado'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el cliente seleccionado</div>";
+    }
+
+      //ALERTA TAREA ASIGNADA ELIMINADA
+      if (isset($_SESSION['eliminar_tarea_asignada'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado la tarea</div>";
+    }
+
+    //ALERTA TAREA ASIGNADA ELIMINADA ERROR
+    if (isset($_SESSION['eliminar_tarea_asignada_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Correcto!!</strong> No se ha podido eliminar la tarea</div>";
     }
 }

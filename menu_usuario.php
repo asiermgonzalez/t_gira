@@ -28,7 +28,15 @@ if (!isset($_SESSION['usuario'])) {
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
         </div>
         <div class="col-md-10">
-            <table class="table table-striped">
+        <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+                <tr class="bg-dark text-light">
+                    <th>ID</th>
+                    <th>TAREA</th>
+                    <th>CLIENTE</th>
+                    <th>FECHA</th>
+                    <th>ESTADO</th>
+                    <th>OPCIONES</th>
+                </tr>
                 <?php
                 $sql = "SELECT * FROM tareas";
                 $respuesta = mysqli_query($conexion, $sql);
@@ -39,8 +47,8 @@ if (!isset($_SESSION['usuario'])) {
                         <td><?= $registro['cliente']; ?></td>
                         <td><?= $registro['fecha']; ?></td>
                         <td><?= $registro['estado']; ?></td>
-                        <td><a href="instalar_tienda.php?id=<?= $registro['id'] ?>" class="btn btn-success" role="button">Comenzar</a></td>
-                        <td><a href="instalar_tienda.php?id=<?= $registro['id'] ?>" class="btn btn-danger" role="button">Finalizar</a></td>
+                        <td><a href="instalar_tienda.php?id=<?= $registro['id'] ?>" class="btn btn-success" role="button">Comenzar</a>
+                        <a href="instalar_tienda.php?id=<?= $registro['id'] ?>" class="btn btn-danger" role="button">Finalizar</a></td>
                     </tr>
 
                 <?php
