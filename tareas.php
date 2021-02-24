@@ -26,7 +26,12 @@ if (!isset($_SESSION['admin'])) {
             <a href="menu_administrador.php" class="btn btn-primary btn-block" role="button">Menú</a>
         </div>
         <div class="col-md-10">
-            <table class="table table-striped">
+            <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+                <tr class="bg-dark text-light">
+                    <th>ID</th>
+                    <th>TAREA</th>
+                    <th>OPCIONES</th>
+                </tr>
                 <?php
                 $sql = "SELECT * FROM tarea";
                 $respuesta = mysqli_query($conexion, $sql);
@@ -34,9 +39,11 @@ if (!isset($_SESSION['admin'])) {
                     <tr>
                         <td><?= $registro['id']; ?></td>
                         <td><?= $registro['nombre']; ?></td>
-                        <td><a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn-block btn_responsive" role="button">Modificar</a></td>
-                        <td><a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn-block btn_responsive" role="button">Eliminar</a></td>
-                        <td><a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-dark btn-block btn_responsive" role="button">Asignar</a></td>
+                        <td>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive" role="button">Modificar</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">Eliminar</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-dark btn_responsive" role="button">Asignar</a>
+                        </td>
                     </tr>
 
                 <?php

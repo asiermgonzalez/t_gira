@@ -20,7 +20,7 @@ if (!isset($_SESSION['admin'])) {
 <div class="container-fluid mt-2">
     <div class="row">
         <div class="col-md-2">
-            <a href="menu_administrador.php" class="btn btn-primary btn-block mt-4" role="button">Menú</a>
+            <a href="tareas.php" class="btn btn-primary btn-block mt-4 mb-4" role="button">Volver</a>
         </div>
         <div class="col-md-10">
             <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
