@@ -120,7 +120,7 @@ if (!isset($_SESSION['admin'])) {
             </div>
         </div>
 
-        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">CREAR</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_usuario">CREAR</button>
 
     </form>
 

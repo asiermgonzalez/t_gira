@@ -2,7 +2,7 @@
 
 class Tarea
 {
-
+    //ATRIBUTOS DE CLASE
     private $id;
     private $nombre;
     private $f1;
@@ -19,7 +19,6 @@ class Tarea
     private $f12;
 
     //CONSTRUCTOR
-
     function __construct($id, $nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12)
     {
         $this->id = $id;
@@ -39,7 +38,6 @@ class Tarea
     }
 
     //GETTERS AND SETTERS
-
     public function getId()
     {
         return $this->id;

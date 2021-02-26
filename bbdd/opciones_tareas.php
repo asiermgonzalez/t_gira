@@ -1,10 +1,9 @@
 <?php
 
-//CONEXION CON LA BBDD
+//CONEXION CON LA BBDD ALERTAS Y CLASE TAREA
 require_once 'conexion.php';
 require_once '../includes/alertas.php';
 require_once '../clases/Tarea.php';
-//require_once 'funciones.php';
 
 //RECIBIR LOS PARAMETROS
 if (isset($_POST['id'])) {

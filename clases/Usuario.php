@@ -2,16 +2,19 @@
 
 class Usuario{
 
-    protected $email;
-    protected $password;
-    protected $nombre;
-    protected $apellido;
-    protected $telefono;
-    protected $rol;
+    //ATRIBUTOS DE CLASE
+    private $id;
+    private $email;
+    private $password;
+    private $nombre;
+    private $apellido;
+    private $telefono;
+    private $rol;
 
-    //Constructor
-    public function __construct($email, $password, $nombre, $apellido, $telefono, $rol)
+    //CONSTRUCTOR
+    function __construct($id, $email, $password, $nombre, $apellido, $telefono, $rol)
     {
+        $this->id=$id;
         $this->email=$email;
         $this->password=$password;
         $this->nombre = $nombre;
@@ -20,7 +23,17 @@ class Usuario{
         $this->rol=$rol;
     }
 
-       //Getters and Setters
+       //GETTERS AND SETTERS
+       public function getId()
+       {
+           return $this->id;
+       }
+   
+       public function setId($id)
+       {
+           $this->id = $id;
+       }
+
        public function getEmail()
        {
            return $this->email;
@@ -80,8 +93,8 @@ class Usuario{
            $this->rol = $rol;
        }
    
-       //Funciones del Programador
-       public function crearUsuario($email, $password, $nombre, $apellido, $telefono, $rol, $conexion){
+       //FUNCIONES DEL USUARIO
+       function crearUsuario($email, $password, $nombre, $apellido, $telefono, $rol, $conexion){
    
            $insertar=mysqli_query($conexion, "INSERT INTO usuarios VALUES(NULL, '$email', '$password', '$nombre', '$apellido', '$telefono', '$rol')");
        }
