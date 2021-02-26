@@ -17,10 +17,11 @@ if (!isset($_SESSION['admin'])) {
     <h1 class="text-center display-4 text-light pb-4 titulo__">Tareas Asignadas</h1>
 </div>
 
-<div class="container-fluid mt-2">
+<div class="container-fluid mt-4">
     <div class="row">
         <div class="col-md-2">
-            <a href="tareas.php" class="btn btn-primary btn-block mt-4 mb-4" role="button">Volver</a>
+            <a href="tareas.php" class="btn btn-info btn-block mt-4 mb-4" role="button">Volver</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-4 mb-4" role="button">Cerrar Sesión</a>
         </div>
         <div class="col-md-10">
             <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">

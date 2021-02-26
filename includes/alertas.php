@@ -32,8 +32,8 @@ function eliminar_alertas()
         unset($_SESSION['tarea_eliminada_error']);
     }
 
-     //ALERTA TAREA ASIGNADA
-     if (isset($_SESSION['tarea_asignada'])) {
+    //ALERTA TAREA ASIGNADA
+    if (isset($_SESSION['tarea_asignada'])) {
         unset($_SESSION['tarea_asignada']);
     }
 
@@ -48,8 +48,8 @@ function eliminar_alertas()
         unset($_SESSION['crear_usuario']);
     }
 
-     //ALERTA CREAR USUARIO ERROR
-     if (isset($_SESSION['crear_usuario_error'])) {
+    //ALERTA CREAR USUARIO ERROR
+    if (isset($_SESSION['crear_usuario_error'])) {
         unset($_SESSION['crear_usuario_error']);
     }
 
@@ -63,21 +63,39 @@ function eliminar_alertas()
         unset($_SESSION['cliente_eliminado']);
     }
 
-     //ALERTA TAREA ASIGNADA ELIMINADA
-     if (isset($_SESSION['eliminar_tarea_asignada'])) {
+    //ALERTA TAREA ASIGNADA ELIMINADA
+    if (isset($_SESSION['eliminar_tarea_asignada'])) {
         unset($_SESSION['eliminar_tarea_asignada']);
     }
 
-     //ALERTA TAREA ASIGNADA ELIMINADA ERROR
+    //ALERTA TAREA ASIGNADA ELIMINADA ERROR
     if (isset($_SESSION['eliminar_tarea_asignada_error'])) {
         unset($_SESSION['eliminar_tarea_asignada_error']);
     }
 
+    //ALERTA TAREA TERMINADA
+    if (isset($_SESSION['terminar_tarea'])) {
+        unset($_SESSION['terminar_tarea']);
+    }
 
+    //ALERTA TAREA TERMINADA ERROR
+    if (isset($_SESSION['terminar_tarea_error'])) {
+        unset($_SESSION['terminar_tarea_error']);
+    }
 }
 
 function mostrar_alertas()
 {
+    //ALERTA TAREA TERMINADA
+    if (isset($_SESSION['terminar_tarea'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha marcado la tarea como terminada</div>";
+    }
+
+    //ALERTA TAREA TERMINADA ERROR
+    if (isset($_SESSION['terminar_tarea_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido marcar la tarea como terminada</div>";
+    }
+
 
     //ALERTA TAREA CREADA
     if (isset($_SESSION['tarea_creada'])) {
@@ -109,8 +127,8 @@ function mostrar_alertas()
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido eliminar la tarea</div>";
     }
 
-     //ALERTA TAREA ASIGNADA
-     if (isset($_SESSION['tarea_asignada'])) {
+    //ALERTA TAREA ASIGNADA
+    if (isset($_SESSION['tarea_asignada'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha asignadao la tarea</div>";
     }
 
@@ -139,8 +157,8 @@ function mostrar_alertas()
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el cliente seleccionado</div>";
     }
 
-      //ALERTA TAREA ASIGNADA ELIMINADA
-      if (isset($_SESSION['eliminar_tarea_asignada'])) {
+    //ALERTA TAREA ASIGNADA ELIMINADA
+    if (isset($_SESSION['eliminar_tarea_asignada'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado la tarea</div>";
     }
 

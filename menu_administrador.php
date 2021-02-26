@@ -16,7 +16,7 @@ if (!isset($_SESSION['admin'])) {
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>"  alt="logo">
-    <h1 class="text-center display-4 text-light pb-4 titulo__">Menú Administrador</h1>
+    <h1 class="text-center text-light pb-4">Menú Administrador</h1>
 </div>
 
 <div class="container" id="menu_principal__">
@@ -24,13 +24,13 @@ if (!isset($_SESSION['admin'])) {
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-6 col-xm-12">
-                <a href="tareas.php" class="btn btn-warning btn-block mt-4" role="button">Tareas</a>
-                <a href="usuarios.php" class="btn btn-block btn-success mt-4" role="button">Usuarios</a>
-                <a href="clientes.php" class="btn btn-block btn-primary mt-4" role="button">Clientes</a>
+                <a href="tareas.php" class="btn btn-info btn-lg btn-block mt-4 text-light" role="button">TAREAS</a>
+                <a href="usuarios.php" class="btn btn-block btn-lg btn-info text-light mt-4" role="button">USUARIOS</a>
+                <a href="clientes.php" class="btn btn-block btn-lg btn-info text-light mt-4" role="button">CLIENTES</a>
             </div>
             <div class="col-md-6 col-xm-12">
-                <a href="configuracion.php" class="btn btn-dark btn-block mt-4" role="button">Configuración</a>
-                <a href="bbdd/cerrar_sesion.php" class="btn btn-block btn-danger mt-4" role="button">Cerrar Sesión</a>
+                <a href="configuracion.php" class="btn btn-lg btn-info text-light btn-block mt-4" role="button">CONFIGURACION</a>
+                <a href="bbdd/cerrar_sesion.php" class="btn btn-lg btn-block btn-danger mt-4" role="button">CERRAR SESION</a>
             </div>
             <div class="col-md-4 col-xm-12">
 

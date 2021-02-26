@@ -9,41 +9,48 @@ if (!isset($_SESSION['admin'])) {
 ?>
 
 <style>
-
+    #menu_principal__ {
+        margin-top: 80px;
+    }
 </style>
 
-<div class="container-fluid bg-secondary cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="">
-    <h1 class="text-center text-light pb-4 titulo__">Tareas</h1>
+<div class="container-fluid cabecera__">
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="logo">
+    <h1 class="text-center text-light pb-4">Usuarios</h1>
 </div>
+
 
 <div class="container-fluid mt-4">
 
     <div class="row">
-    <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">CREAR TAREA</button>
-            <a href="tareas_asignadas.php" class="btn btn-info btn-block" role="button">TAREAS ASIGNADAS</a>
+        <div class="col-md-3 p-4">
+            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">CREAR USUARIO</button>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
         </div>
-        <div class="col-md-9 mt-4">
+        <div class="col-md-9">
             <table class="table table-hover table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
-                    <th>TAREA</th>
-                    <th>OPCIONES</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>TELEFONO</th>
+                    <th>EMAIL</th>
+                    <th>ACCIONES</th>
                 </tr>
                 <?php
-                $sql = "SELECT * FROM tarea";
+                $sql = "SELECT * FROM usuarios";
                 $respuesta = mysqli_query($conexion, $sql);
                 while ($registro = mysqli_fetch_assoc($respuesta)) : ?>
                     <tr>
                         <td><?= $registro['id']; ?></td>
                         <td><?= $registro['nombre']; ?></td>
+                        <td><?= $registro['apellido']; ?></td>
+                        <td><?= $registro['telefono']; ?></td>
+                        <td><?= $registro['email']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-success btn_responsive" role="button">ASIGNAR</a>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive" role="button">MODIFICAR</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">ELIMINAR</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-primary btn_responsive" role="button">Modificar</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">Eliminar</a>
                         </td>
                     </tr>
 
@@ -70,68 +77,50 @@ if (!isset($_SESSION['admin'])) {
 <!-- MENU DESPLEGABLE CREAR TAREA -->
 <div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
     <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
-    <h2 class="text-center">Nueva Tarea</h2>
-    <form action="bbdd/opciones_tareas.php" method="POST">
-        <div class="form-group mt-4">
-            <label>Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre" required>
-        </div>
+    <h2 class="text-center">Nuevo Usuario</h2>
+    <form action="bbdd/opciones_usuarios.php" method="POST">
 
-        <div class="row mt-2">
+        <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f1">
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Nombre" name="nombre" required>
+                </div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f2">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f3">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f4">
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Apellido" name="apellido" required>
+                </div>
             </div>
         </div>
-
-        <div class="row mt-2">
+        <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f5">
+                <div class="form-group mt-4">
+                    <input type="text" class="form-control" placeholder="Teléfono" name="telefono" required>
+                </div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f6">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f7">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f8">
+                <div class="form-group mt-4">
+                    <input type="email" class="form-control" placeholder="Email" name="email" required>
+                </div>
             </div>
         </div>
-
-        <div class="row mt-2">
+        <div class="row">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f9">
+                <div class="form-group mt-4">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
+                </div>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f10">
+                <div class="form-group mt-4">
+                    <select name="rol" class="form-control">
+                        <option value="USUARIO">Usuario</option>
+                        <option value="ADMINISTRADOR">Administrador</option>
+                    </select>
+                </div>
             </div>
         </div>
 
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f11">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f12">
-            </div>
-        </div>
-
-        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">Crear</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">CREAR</button>
 
     </form>
 
@@ -287,7 +276,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row mb-4 mt-2">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info" name="asignar_tarea">Asignar</button>
+                        <button type="submit" class="btn btn-success btn-block" name="asignar_tarea">Asignar</button>
                     </div>
                 </div>
 
@@ -297,6 +286,8 @@ if (!isset($_SESSION['admin'])) {
     </div>
 
 <?php }; ?>
+
+
 
 
 <?php include 'includes/footer.php'; ?>

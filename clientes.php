@@ -9,41 +9,56 @@ if (!isset($_SESSION['admin'])) {
 ?>
 
 <style>
-
+    #menu_principal__ {
+        margin-top: 80px;
+    }
 </style>
 
-<div class="container-fluid bg-secondary cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="">
-    <h1 class="text-center text-light pb-4 titulo__">Tareas</h1>
+<div class="container-fluid cabecera__">
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="logo">
+    <h1 class="text-center text-light pb-4">Clientes</h1>
 </div>
+
 
 <div class="container-fluid mt-4">
 
     <div class="row">
-    <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">CREAR TAREA</button>
-            <a href="tareas_asignadas.php" class="btn btn-info btn-block" role="button">TAREAS ASIGNADAS</a>
-            <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
-            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
+        <div class="col-md-3 borde-derecho borde-inferior p-4" style="box-shadow: 3px 3px 9px black;">
+            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">Crear Cliente</button>
+            <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">Menú</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
         </div>
-        <div class="col-md-9 mt-4">
-            <table class="table table-hover table-sm table-responsive-sm">
+        <div class="col-md-9">
+            <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
-                    <th>TAREA</th>
-                    <th>OPCIONES</th>
+                    <th>EMPRESA</th>
+                    <th>DIRECCION</th>
+                    <th>CP</th>
+                    <th>POBLACION</th>
+                    <th>PROVINCIA</th>
+                    <th>CONTACTO</th>
+                    <th>TELEFONO</th>
+                    <th>EMAIL</th>
+                    <th>ACCIONES</th>
                 </tr>
                 <?php
-                $sql = "SELECT * FROM tarea";
+                $sql = "SELECT * FROM clientes";
                 $respuesta = mysqli_query($conexion, $sql);
                 while ($registro = mysqli_fetch_assoc($respuesta)) : ?>
                     <tr>
                         <td><?= $registro['id']; ?></td>
                         <td><?= $registro['nombre']; ?></td>
+                        <td><?= $registro['direccion']; ?></td>
+                        <td><?= $registro['cp']; ?></td>
+                        <td><?= $registro['poblacion']; ?></td>
+                        <td><?= $registro['provincia']; ?></td>
+                        <td><?= $registro['persona_contacto']; ?></td>
+                        <td><?= $registro['telefono']; ?></td>
+                        <td><?= $registro['email']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-success btn_responsive" role="button">ASIGNAR</a>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive" role="button">MODIFICAR</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">ELIMINAR</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive btn-block" role="button">Modificar</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive btn-block" role="button">Eliminar</a>
                         </td>
                     </tr>
 
@@ -70,66 +85,31 @@ if (!isset($_SESSION['admin'])) {
 <!-- MENU DESPLEGABLE CREAR TAREA -->
 <div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
     <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
-    <h2 class="text-center">Nueva Tarea</h2>
+    <h2 class="text-center">Nuevo Cliente</h2>
     <form action="bbdd/opciones_tareas.php" method="POST">
+
         <div class="form-group mt-4">
-            <label>Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre" required>
+            <label>Empresa:</label>
+            <input type="text" class="form-control" placeholder="Denominación Comercial" name="nombre" required>
         </div>
 
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f1">
+        <div class="row">
+            <div class="col-md-6">
+                <label>Persona de contacto:</label>
+                <input type="text" class="form-control" placeholder="Persona de contacto" name="persona_contacto" required>
             </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f2">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f3">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f4">
+            <div class="col-md-6">
+                <label>Teléfono:</label>
+                <input type="text" class="form-control" placeholder="Denominación Comercial" name="telefono" required>
             </div>
         </div>
 
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f5">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f6">
-            </div>
+        <div class="form-group mt-4">
+            <label>Dirección:</label>
+            <input type="text" class="form-control" placeholder="Calle, número, piso, letra" name="direccion" required>
         </div>
 
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f7">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f8">
-            </div>
-        </div>
 
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f9">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f10">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f11">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f12">
-            </div>
-        </div>
 
         <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">Crear</button>
 
@@ -287,7 +267,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row mb-4 mt-2">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info" name="asignar_tarea">Asignar</button>
+                        <button type="submit" class="btn btn-success btn-block" name="asignar_tarea">Asignar</button>
                     </div>
                 </div>
 
@@ -297,6 +277,8 @@ if (!isset($_SESSION['admin'])) {
     </div>
 
 <?php }; ?>
+
+
 
 
 <?php include 'includes/footer.php'; ?>

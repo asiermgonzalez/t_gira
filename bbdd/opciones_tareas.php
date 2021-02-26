@@ -90,6 +90,10 @@ if (isset($_GET['eliminar_tarea_asignada'])) {
     $opcion = 5;
 }
 
+if(isset($_GET['id_tarea_finalizada'])){
+    $opcion=6;
+}
+
 
 
 switch ($opcion) {
@@ -224,4 +228,28 @@ switch ($opcion) {
         header('Location:../tareas_asignadas.php');
 
         break;
+
+        /*********************************************** TAREA FINALIZADA *************************************************************/
+        case 6:
+
+            $id=$_GET['id_tarea_finalizada'];
+
+            $finalizar_tarea=mysqli_query($conexion, "UPDATE tareas SET estado='REALIZADO' WHERE id='$id'");
+
+              //Creamos una sesión para el mensaje de alerta
+        if ($finalizar_tarea) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['terminar_tarea'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['terminar_tarea_error'] = "ERROR";
+        }
+
+        $conexion->close();
+
+        header('Location:../menu_usuario.php');
+
+            break;
 }
