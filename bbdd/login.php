@@ -1,41 +1,50 @@
 <?php
 
-//Conexión con la BBDD
+//CONEXION
 require_once 'conexion.php';
 
-//Recibir los parámetros del formulario y escapar los caracteres extraños para evitar inyección SQL
-$email=mysqli_real_escape_string($conexion, $_POST['email']);
-$password=mysqli_real_escape_string($conexion, $_POST['password']);
+//RECIBIR LOS PARAMETROS DEL FORMULARIO Y ESCAPAR LOS DATOS PARA EVITAR INYECCION SQL
+$email = mysqli_real_escape_string($conexion, $_POST['email']);
+$password = mysqli_real_escape_string($conexion, $_POST['password']);
 
-//Comprobar si es administrador o usuario
-$consulta=mysqli_query($conexion, "SELECT * FROM usuarios WHERE email='$email' AND password='$password'");
+//COMPROBAR SI EXISTE EL EMAIL
+$consulta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email='$email'");
 
-//Si no hay resultado mandar al login
-if($consulta && mysqli_num_rows($consulta)==0){
-    session_start();
-    $_SESSION['login_incorrecto']="Usuario y/o Contraseña incorrecto";
-    $conexion->close();
-    header('Location:../index.php');
-}else{
+if ($consulta && mysqli_num_rows($consulta) == 1) {
 
-    //Si devuelve 1 es que el usuario está registrado
-    if($consulta && mysqli_num_rows($consulta)==1){
+    $usuario = mysqli_fetch_assoc($consulta);
 
-        $usuario=mysqli_fetch_assoc($consulta);
+    //COMPROBAR LA CONTRASEÑA
+    $verify = password_verify($password, $usuario['password']);
+
+    if ($verify) {
 
         //Administrador
-        if($usuario['rol']=='admin'){
+        if ($usuario['rol'] == 'ADMINISTRADOR') {
             session_start();
-            $_SESSION['admin']=$usuario['nombre'];
+            $_SESSION['admin'] = $usuario['nombre'];
             $conexion->close();
             header('Location:../menu_administrador.php');
-        }else{
+        } else {
             //Usuario
             session_start();
-            $_SESSION['usuario']=$usuario['nombre'];
+            $_SESSION['usuario'] = $usuario['nombre'];
             $conexion->close();
             header('Location:../menu_usuario.php');
         }
     }
+    //LOGIN NO ES CORRECTO
+    else {
+        session_start();
+        $_SESSION['login_incorrecto'] = "Usuario y/o Contraseña incorrecto";
+        $conexion->close();
+        header('Location:../index.php');
+    }
 }
-
+//NO EXISTE EL EMAIL
+else {
+    session_start();
+    $_SESSION['login_incorrecto'] = "Usuario y/o Contraseña incorrecto";
+    $conexion->close();
+    header('Location:../index.php');
+}
