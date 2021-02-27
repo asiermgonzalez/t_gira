@@ -47,15 +47,23 @@ if(isset($_POST['crear_usuario'])){
     $opcion=1;
 }
 
+if (isset($_POST['modificar_usuario'])) {
+    $opcion = 2;
+}
+
+if (isset($_GET['eliminar_usuario'])) {
+    $opcion = 3;
+}
+
 switch($opcion){
-     /*********************************************** CREAR OPCION ************************************************/
+     /*********************************************** CREAR USUARIO ************************************************/
      case 1:
 
         //CREAMOS UN OBJETO USUARIO
         $usuario=new Usuario(null, $email, $password_segura, $nombre, $apellido, $telefono, $rol, $conexion);
 
         //LLAMAMOS A LA FUNCION crearUsuario
-        $usuario->crearUsuario(
+        $crear_usuario=$usuario->crearUsuario(
             $usuario->getEmail(),
             $usuario->getPassword(),
             $usuario->getNombre(),
@@ -71,6 +79,57 @@ switch($opcion){
         //REDIRIGIR AL MENU
         header('Location:../usuarios.php');
 
+        break;
+
+            /*********************************************** MODIFICAR USUARIO ************************************************/
+    case 2:
+
+        //CREAMOS UN OBJETO USUARIO
+        $usuario = new Usuario($id, $email, $password_segura, $nombre, $apellido, $telefono, $rol, $conexion);
+
+        //LLAMAMOS A LA FUNCION modificarUsuario
+        $usuario->modificarUsuario(
+            $usuario->getId(),
+            $usuario->getEmail(),
+            $usuario->getPassword(),
+            $usuario->getNombre(),
+            $usuario->getApellido(),
+            $usuario->getTelefono(),
+            $usuario->getRol(),
+            $conexion
+        );
+
+        //CERRAR LA CONEXION
+        $conexion->close();
+
+        //REDIRIGIR A USUARIOS
+        header('Location:../usuarios.php');
+
+        break;
+
+               /*********************************************** ELIMINAR USUARIO ************************************************/
+    case 3:
+
+        $eliminar = mysqli_query($conexion, "DELETE FROM usuarios WHERE id='$id'");
+   
+        //Creamos una sesión para el mensaje de alerta
+        if ($eliminar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['usuario_eliminado'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['usuario_eliminado_error'] = "ERROR";
+        }
+
+        //CERRAR LA CONEXION
+        $conexion->close();
+
+        //REDIRIGIR A USUARIOS
+        header('Location:../usuarios.php');
+
+        break;
 }
 
 

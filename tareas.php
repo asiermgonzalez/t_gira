@@ -41,9 +41,9 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['id']; ?></td>
                         <td><?= $registro['nombre']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-success btn_responsive" role="button">ASIGNAR</a>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive" role="button">MODIFICAR</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">ELIMINAR</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id_asignar=' . $registro['id'] ?>" class="btn btn-info" role="button">ASIGNAR</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" role="button">MODIFICAR</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-info" role="button">ELIMINAR</a>
                         </td>
                     </tr>
 

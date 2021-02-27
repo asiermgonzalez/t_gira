@@ -49,8 +49,8 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['telefono']; ?></td>
                         <td><?= $registro['email']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-primary btn_responsive" role="button">Modificar</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive" role="button">Eliminar</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" role="button">MODIFICAR</a>
+                            <a href="bbdd/opciones_usuarios.php?id=<?= $registro['id'] ?>&eliminar_usuario" class="btn btn-info" role="button">ELIMINAR</a>
                         </td>
                     </tr>
 
@@ -74,7 +74,7 @@ if (!isset($_SESSION['admin'])) {
 
 
 
-<!-- MENU DESPLEGABLE CREAR TAREA -->
+<!-- MENU DESPLEGABLE CREAR USUARIO -->
 <div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
     <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
     <h2 class="text-center">Nuevo Usuario</h2>
@@ -132,20 +132,20 @@ if (!isset($_SESSION['admin'])) {
     $id = $_GET["id"];
 
     //CONSULTA PARA MOSTRAR LA TAREA DEL ID RECIBIDO
-    $peticion = mysqli_query($conexion, "SELECT * FROM tarea WHERE id=$id");
+    $peticion = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id=$id");
     $modificar = mysqli_fetch_assoc($peticion);
 
 ?>
 
 
-    <!-- MENU DESPLEGABLE MODIFICAR TAREA -->
+    <!-- MENU DESPLEGABLE MODIFICAR USUARIO -->
 
     <div class="container p-4 borde-derecho borde-inferior" id="menu_desplegable_modificar__">
         <div class="col-md-12">
             <h6 class="text-right" id="clic_cierre_modificar__">(x)</h6>
-            <h2 class="text-center">Modificar Tarea</h2>
+            <h2 class="text-center">Modificar Usuario</h2>
 
-            <form action="bbdd/opciones_tareas.php?id=<?= $modificar['id'] ?>" method="POST">
+            <form action="bbdd/opciones_usuarios.php?id=<?= $modificar['id'] ?>" method="POST">
                 <div class="row">
                     <div class="col">
                         <div class="form-group mt-4">
@@ -155,64 +155,39 @@ if (!isset($_SESSION['admin'])) {
                     </div>
                     <div class="col">
                         <div class="form-group mt-4">
-                            <label>Nombre tarea:</label>
-                            <input type="text" class="form-control" placeholder="Nombre de la tarea" name="nombre" value="<?= $modificar['nombre']; ?>" required>
+                            <label>Nombre:</label>
+                            <input type="text" class="form-control" name="nombre" value="<?= $modificar['nombre']; ?>" required>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Función 1:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f1']; ?>" name="f1">
+                    <label>Apellido:</label>
+                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['apellido']; ?>" name="apellido">
                 </div>
                 <div class="form-group">
-                    <label>Función 2:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f2']; ?>" name="f2">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" maxlength="200" value="<?= $modificar['email']; ?>" name="email">
                 </div>
                 <div class="form-group">
-                    <label>Función 3:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f3']; ?>" name="f3">
+                    <label>Contraseña:</label>
+                    <input type="password" class="form-control" maxlength="200" value="<?= $modificar['password']; ?>" name="password">
                 </div>
                 <div class="form-group">
-                    <label>Función 4:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f4']; ?>" name="f4">
+                    <label>Teléfono:</label>
+                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['telefono']; ?>" name="telefono">
                 </div>
-                <div class="form-group">
-                    <label>Función 5:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f5']; ?>" name="f5">
+                <div class="form-group mt-4">
+                    <select name="rol" class="form-control">
+                        <option value="USUARIO">Usuario</option>
+                        <option value="ADMINISTRADOR">Administrador</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label>Función 6:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f6']; ?>" name="f6">
-                </div>
-                <div class="form-group">
-                    <label>Función 7:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f7']; ?>" name="f7">
-                </div>
-                <div class="form-group">
-                    <label>Función 8:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f8']; ?>" name="f8">
-                </div>
-                <div class="form-group">
-                    <label>Función 9:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f9']; ?>" name="f9">
-                </div>
-                <div class="form-group">
-                    <label>Función 10:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f10']; ?>" name="f10">
-                </div>
-                <div class="form-group">
-                    <label>Función 11:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f11']; ?>" name="f11">
-                </div>
-                <div class="form-group">
-                    <label>Función 12:</label>
-                    <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f12']; ?>" name="f12">
-                </div>
+
 
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info btn-block" name="modificar_tarea">Modificar</button>
+                        <button type="submit" class="btn btn-info btn-block" name="modificar_usuario">Modificar</button>
                     </div>
                 </div>
 
@@ -286,7 +261,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
 
 <?php }; ?>
-
 
 
 

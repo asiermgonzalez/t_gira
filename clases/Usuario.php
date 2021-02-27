@@ -93,11 +93,43 @@ class Usuario{
            $this->rol = $rol;
        }
    
-       //FUNCIONES DEL USUARIO
+
+       //FUNCIONES DEL PROGRAMADOR
        function crearUsuario($email, $password, $nombre, $apellido, $telefono, $rol, $conexion){
    
            $insertar=mysqli_query($conexion, "INSERT INTO usuarios VALUES(NULL, '$email', '$password', '$nombre', '$apellido', '$telefono', '$rol')");
        }
 
+       function modificarUsuario($id, $email, $password, $nombre, $apellido, $telefono, $rol, $conexion)
+       {
+           $modificar = mysqli_query($conexion, "UPDATE usuarios SET email='$email', password='$password', nombre='$nombre', apellido='$apellido', telefono='$telefono', rol='$rol'  WHERE id=$id");
+   
+           //Creamos una sesión para el mensaje de alerta
+           if ($modificar) {
+               session_start();
+               eliminar_alertas();
+               $_SESSION['usuario_modificado'] = 'Ok';
+           } else {
+               session_start();
+               eliminar_alertas();
+               $_SESSION['usuario_modificado_error'] = "ERROR";
+           }
+       }
+
+       function eliminarUsuario($id, $conexion)
+       {
+           $eliminar = mysqli_query($conexion, "DELETE FROM usuarios WHERE id='$id'");
+   
+           //Creamos una sesión para el mensaje de alerta
+           if ($eliminar) {
+               session_start();
+               eliminar_alertas();
+               $_SESSION['usuario_eliminado'] = 'Ok';
+           } else {
+               session_start();
+               eliminar_alertas();
+               $_SESSION['usuario_eliminado_error'] = "ERROR";
+           }
+       }
 
 }

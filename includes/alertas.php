@@ -82,10 +82,49 @@ function eliminar_alertas()
     if (isset($_SESSION['terminar_tarea_error'])) {
         unset($_SESSION['terminar_tarea_error']);
     }
+
+    //ALERTA USUARIO MODIFICADO
+    if (isset($_SESSION['usuario_modificado'])) {
+        unset($_SESSION['usuario_modificado']);
+    }
+
+    //ALERTA USUARIO MODIFICADO ERROR
+    if (isset($_SESSION['usuario_modificado_error'])) {
+        unset($_SESSION['usuario_modificado_error']);
+    }
+
+    //ALERTA USUARIO ELIMINADO
+    if (isset($_SESSION['usuario_eliminado'])) {
+        unset($_SESSION['usuario_eliminado']);
+    }
+
+    //ALERTA USUARIO ELIMINADO ERROR
+    if (isset($_SESSION['usuario_eliminado_error'])) {
+        unset($_SESSION['usuario_eliminado_error']);
+    }
 }
 
 function mostrar_alertas()
 {
+      //ALERTA USUARIO ELIMINADO
+      if (isset($_SESSION['usuario_eliminado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el usuario</div>";
+    }
+
+    //ALERTA USUARIO ELIMINADO ERROR
+    if (isset($_SESSION['usuario_eliminado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido eliminar el usuario</div>";
+    }
+    //ALERTA USUARIO MODIFICADO
+    if (isset($_SESSION['usuario_modificado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha modificado el usuario</div>";
+    }
+
+    //ALERTA USUARIO MODIFICADO ERROR
+    if (isset($_SESSION['usuario_modificado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido modificar el usuario</div>";
+    }
+
     //ALERTA TAREA TERMINADA
     if (isset($_SESSION['terminar_tarea'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha marcado la tarea como terminada</div>";
