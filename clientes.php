@@ -23,13 +23,13 @@ if (!isset($_SESSION['admin'])) {
 <div class="container-fluid mt-4">
 
     <div class="row">
-        <div class="col-md-3 borde-derecho borde-inferior p-4" style="box-shadow: 3px 3px 9px black;">
+        <div class="col-md-3 p-4">
             <button type="button" class="btn btn-info btn-block" id="boton-desplegar">Crear Cliente</button>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">Menú</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
         </div>
         <div class="col-md-9">
-            <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+            <table class="table table-hover table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>EMPRESA</th>
@@ -57,8 +57,8 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['telefono']; ?></td>
                         <td><?= $registro['email']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-warning btn_responsive btn-block" role="button">Modificar</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-danger btn_responsive btn-block" role="button">Eliminar</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info btn-block" role="button">Modificar</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-info btn-block" role="button">Eliminar</a>
                         </td>
                     </tr>
 
