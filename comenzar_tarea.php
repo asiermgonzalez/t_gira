@@ -39,8 +39,9 @@ $listar = mysqli_fetch_assoc($lista_tarea)
 <div class="container-fluid mt-4">
 
     <div class="row">
-        <div class="col-md-3 borde-derecho borde-inferior p-4" style="box-shadow: 3px 3px 9px black;">
+        <div class="col-md-3 p-4">
             <h2 class="text-center">Cliente</h2>
+            <hr>
             <h5><?=$datos_cliente['nombre'];?></h5>
             <h5><?=$datos_cliente['persona_contacto'].' - '.$datos_cliente['telefono'];?></h5>
             <h5><?=$datos_cliente['email'];?></h5>
@@ -55,7 +56,7 @@ $listar = mysqli_fetch_assoc($lista_tarea)
         <h2 class="text-center">Tarea</h2>
             <form action="bbdd/opciones_tareas.php?id_tarea_finalizada=<?= $registro_comenzar_tarea['id']; ?>" method="POST">
 
-                <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+                <table class="table table-hover table-sm table-responsive-sm">
                     <tr class="bg-dark text-light">
                         <th></th>
                         <th class="text-center">PROCESO</th>

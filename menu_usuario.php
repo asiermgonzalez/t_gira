@@ -22,13 +22,13 @@ if (!isset($_SESSION['usuario'])) {
 <div class="container-fluid mt-4">
 
     <div class="row">
-        <div class="col-md-3 borde-derecho borde-inferior p-4" style="box-shadow: 3px 3px 9px black;">
-            <a href="#" class="btn btn-info btn-block" role="button">Listado Clientes</a>
-            <a href="#" class="btn btn-info btn-block" role="button">Listado Usuarios</a>
-            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
+        <div class="col-md-3">
+            <a href="listado_clientes.php" class="btn btn-info btn-block" role="button">LISTADO CLIENTES</a>
+            <a href="listado_usuarios.php" class="btn btn-info btn-block" role="button">LISTADO USUARIOS</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-9">
-            <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+            <table class="table table-hover table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>TAREA</th>

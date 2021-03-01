@@ -20,11 +20,11 @@ if (!isset($_SESSION['admin'])) {
 <div class="container-fluid mt-4">
     <div class="row">
         <div class="col-md-2">
-            <a href="tareas.php" class="btn btn-info btn-block mt-4 mb-4" role="button">Volver</a>
-            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-4 mb-4" role="button">Cerrar Sesión</a>
+            <a href="tareas.php" class="btn btn-info btn-block mt-4 mb-4" role="button">VOLVER</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-4 mb-4" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-10">
-            <table class="table table-info table-hover table-bordered table-sm table-responsive-sm">
+            <table class="table table-hover table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>USUARIO</th>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['admin'])) {
                         <?php } else { ?>
                             <td class="bg-success text-light text-center"><?= $registro['estado']; ?></td>
                         <?php }; ?>
-                        <td><a href="bbdd/opciones_tareas.php?eliminar_tarea_asignada=<?= $registro['id'];?>" class="btn btn-danger btn-block btn_responsive" role="button">Eliminarar</a></td>
+                        <td><a href="bbdd/opciones_tareas.php?eliminar_tarea_asignada=<?= $registro['id'];?>" class="btn btn-danger btn-block btn_responsive" role="button">ELIMINAR</a></td>
                     </tr>
 
                 <?php
