@@ -131,7 +131,7 @@ if (!isset($_SESSION['admin'])) {
             </div>
         </div>
 
-        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">Crear</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">CREAR</button>
 
     </form>
 
@@ -223,7 +223,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info btn-block" name="modificar_tarea">Modificar</button>
+                        <button type="submit" class="btn btn-info btn-block" name="modificar_tarea">MODIFICAR</button>
                     </div>
                 </div>
 
@@ -287,7 +287,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row mb-4 mt-2">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info" name="asignar_tarea">Asignar</button>
+                        <button type="submit" class="btn btn-info" name="asignar_tarea">ASIGNAR</button>
                     </div>
                 </div>
 
