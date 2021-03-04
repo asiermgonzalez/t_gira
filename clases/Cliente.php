@@ -5,30 +5,47 @@ class Cliente
     private $id;
     private $nombre;
     private $persona_contacto;
+    private $movil;
     private $telefono;
+    private $telefono2;
     private $email;
+    private $email2;
     private $direccion;
     private $cp;
     private $poblacion;
     private $provincia;
-    
+    private $notas;
 
     //Constructores
-    function __construct($id, $nombre, $persona_contacto, $telefono, $email, $direccion, $cp, $poblacion, $provincia)
+    function __construct($id, $nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas)
     {
         $this->id=$id;
         $this->nombre = $nombre;
         $this->persona_contacto=$persona_contacto;
+        $this->movil=$movil;
         $this->telefono = $telefono;
+        $this->telefono2 = $telefono2;
         $this->email = $email;
+        $this->email2 = $email2;
         $this->direccion=$direccion;
         $this->cp=$cp;
         $this->poblacion=$poblacion;
         $this->provincia=$provincia;
+        $this->notas=$notas;
     }
 
 
     //Getters and Setters
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function getNombre()
     {
         return $this->nombre;
@@ -49,6 +66,16 @@ class Cliente
         $this->persona_contacto = $persona_contacto;
     }
 
+    public function getMovil()
+    {
+        return $this->movil;
+    }
+
+    public function setMovil($movil)
+    {
+        $this->movil = $movil;
+    }
+
     public function getTelefono()
     {
         return $this->telefono;
@@ -59,6 +86,16 @@ class Cliente
         $this->telefono = $telefono;
     }
 
+    public function getTelefono2()
+    {
+        return $this->telefono2;
+    }
+
+    public function setTelefono2($telefono2)
+    {
+        $this->telefono2 = $telefono2;
+    }
+
     public function getEmail()
     {
         return $this->email;
@@ -67,6 +104,16 @@ class Cliente
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+    
+    public function getEmail2()
+    {
+        return $this->email2;
+    }
+
+    public function setEmail2($email2)
+    {
+        $this->email2 = $email2;
     }
 
     public function getCp()
@@ -109,11 +156,21 @@ class Cliente
         $this->provincia = $provincia;
     }
 
-    //Funciones del Programador
-    public function crearCliente($nombre, $persona_contacto, $telefono, $email, $direccion, $cp, $poblacion, $provincia,  $conexion){
+    public function getNotas()
+    {
+        return $this->notas;
+    }
 
-        $insertar=mysqli_query($conexion, "INSERT INTO clientes VALUES(NULL, '$nombre', '$persona_contacto', '$telefono', '$email', '$direccion', '$cp', '$poblacion',
-        '$provincia' )");
+    public function setNotas($notas)
+    {
+        $this->notas = $notas;
+    }
+
+    //Funciones del Programador
+    public function crearCliente($nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion){
+
+        $insertar=mysqli_query($conexion, "INSERT INTO clientes VALUES(NULL, '$nombre', '$persona_contacto', '$movil', '$telefono', '$telefono2', '$email', 
+        '$email2', '$direccion', '$cp', '$poblacion', '$provincia', '$notas' )");
     }
 
     public function eliminarCliente($id, $conexion){

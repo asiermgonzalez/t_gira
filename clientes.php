@@ -33,13 +33,10 @@ if (!isset($_SESSION['admin'])) {
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>EMPRESA</th>
-                    <th>DIRECCION</th>
-                    <th>CP</th>
-                    <th>POBLACION</th>
-                    <th>PROVINCIA</th>
                     <th>CONTACTO</th>
                     <th>TELEFONO</th>
                     <th>EMAIL</th>
+                    <th>PROVINCIA</th>
                     <th>ACCIONES</th>
                 </tr>
                 <?php
@@ -49,13 +46,10 @@ if (!isset($_SESSION['admin'])) {
                     <tr>
                         <td><?= $registro['id']; ?></td>
                         <td><?= $registro['nombre']; ?></td>
-                        <td><?= $registro['direccion']; ?></td>
-                        <td><?= $registro['cp']; ?></td>
-                        <td><?= $registro['poblacion']; ?></td>
-                        <td><?= $registro['provincia']; ?></td>
                         <td><?= $registro['persona_contacto']; ?></td>
                         <td><?= $registro['telefono']; ?></td>
                         <td><?= $registro['email']; ?></td>
+                        <td><?= $registro['provincia']; ?></td>                       
                         <td>
                             <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info btn-block" role="button">Modificar</a>
                             <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-info btn-block" role="button">Eliminar</a>
@@ -82,11 +76,11 @@ if (!isset($_SESSION['admin'])) {
 
 
 
-<!-- MENU DESPLEGABLE CREAR TAREA -->
+<!-- MENU DESPLEGABLENUEVO CLIENTE -->
 <div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
     <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
     <h2 class="text-center">Nuevo Cliente</h2>
-    <form action="bbdd/opciones_tareas.php" method="POST">
+    <form action="bbdd/opciones_clientes.php" method="POST">
 
         <div class="form-group mt-4">
             <label>Empresa:</label>
@@ -95,23 +89,138 @@ if (!isset($_SESSION['admin'])) {
 
         <div class="row">
             <div class="col-md-6">
-                <label>Persona de contacto:</label>
-                <input type="text" class="form-control" placeholder="Persona de contacto" name="persona_contacto" required>
+                <div class="form-group mt-4">
+                    <label>Persona de contacto:</label>
+                    <input type="text" class="form-control" placeholder="Persona de contacto" name="persona_contacto" required>
+                </div>
             </div>
             <div class="col-md-6">
-                <label>Teléfono:</label>
-                <input type="text" class="form-control" placeholder="Denominación Comercial" name="telefono" required>
+                <div class="form-group mt-4">
+                    <label>Móvil Personal:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono" name="movil">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-4">
+                    <label>Teléfono 1:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono Principal" name="telefono1" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-4">
+                    <label>Teléfono 2:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono" name="telefono2">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-4">
+                    <label>Email 1:</label>
+                    <input type="email" class="form-control" placeholder="Email Principal" name="email1" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-4">
+                    <label>Email 2:</label>
+                    <input type="email" class="form-control" placeholder="Email" name="email2">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group mt-4">
+                    <label>Dirección:</label>
+                    <input type="text" class="form-control" placeholder="Calle, número, piso, letra" name="direccion" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group mt-4">
+                    <label>CP:</label>
+                    <input type="text" class="form-control" placeholder="C. Postal" name="cp" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="form-group mt-4">
+                    <label>Población:</label>
+                    <input type="text" class="form-control" placeholder="Población" name="poblacion" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group mt-4">
+                    <label>Provincia:</label>
+                    <select name="provincia" class="form-control">
+                        <option value="A CORUÑA">A CORUÑA</option>
+                        <option value="ALAVA">ALAVA</option>
+                        <option value="ALBACETE">ALBACETE</option>
+                        <option value="ALICANTE">ALICANTE</option>
+                        <option value="ALMERIA">ALMERIA</option>
+                        <option value="ASTURIAS">ASTURIAS</option>
+                        <option value="AVILA">AVILA</option>
+                        <option value="BADAJOZ">BADAJOZ</option>
+                        <option value="BALEARES">BALEARES</option>
+                        <option value="BARCELONA">BARCELONA</option>
+                        <option value="BURGOS">BURGOS</option>
+                        <option value="CACERES">CACERES</option>
+                        <option value="CADIZ">CADIZ</option>
+                        <option value="CANTABRIA">CANTABRIA</option>
+                        <option value="CASTELLON">CASTELLON</option>
+                        <option value="CEUTA">CEUTA</option>
+                        <option value="CIUDAD REAL">CIUDAD REAL</option>
+                        <option value="CORDOBA">CORDOBA</option>
+                        <option value="CUENCA">CUENCA</option>
+                        <option value="GERONA">GERONA</option>
+                        <option value="GRANADA">GRANADA</option>
+                        <option value="GUADALAJARA">GUADALAJARA</option>
+                        <option value="GUIPUZCOA">GUIPUZCOA</option>
+                        <option value="HUELVA">HUELVA</option>
+                        <option value="HUESCA">HUESCA</option>
+                        <option value="JAEN">JAEN</option>
+                        <option value="LA RIOJA">LA RIOJA</option>
+                        <option value="LAS PALMAS">LAS PALMAS</option>
+                        <option value="LEON">LEON</option>
+                        <option value="LERIDA">LERIDA</option>
+                        <option value="LUGO">LUGO</option>
+                        <option value="MADRID">MADRID</option>
+                        <option value="MALAGA">MALAGA</option>
+                        <option value="MELILLA">MELILLA</option>
+                        <option value="MURCIA">MURCIA</option>
+                        <option value="NAVARRA">NAVARRA</option>
+                        <option value="OURENSE">OURENSE</option>
+                        <option value="PALENCIA">PALENCIA</option>
+                        <option value="PONTEVEDRA">PONTEVEDRA</option>
+                        <option value="SALAMANCA">SALAMANCA</option>
+                        <option value="SEGOVIA">SEGOVIA</option>
+                        <option value="SEVILLA">SEVILLA</option>
+                        <option value="SANTA CRUZ DE TENERIFE">S. CRUZ TENERIFE</option>
+                        <option value="SORIA">SORIA</option>
+                        <option value="TARRAGONA">TARRAGONA</option>
+                        <option value="TERUEL">TERUEL</option>
+                        <option value="TOLEDO">TOLEDO</option>
+                        <option value="VALENCIA">VALENCIA</option>
+                        <option value="VALLADOLID">VALLADOLID</option>
+                        <option value="VIZCAYA">VIZCAYA</option>
+                        <option value="ZAMORA">ZAMORA</option>
+                        <option value="ZARAGOZA">ZARAGOZA</option>
+                    </select>
+                </div>
             </div>
         </div>
 
         <div class="form-group mt-4">
-            <label>Dirección:</label>
-            <input type="text" class="form-control" placeholder="Calle, número, piso, letra" name="direccion" required>
+            <label>Notas:</label>
+            <textarea class="form-control" name="notas" cols="30" rows="10"></textarea>
         </div>
 
-
-
-        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_tarea">Crear</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_cliente">Crear</button>
 
     </form>
 
