@@ -21,7 +21,7 @@ if (!isset($_SESSION['admin'])) {
 
     <div class="row">
     <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">CREAR TAREA</button>
+            <button type="button" class="btn btn-info btn-block" id="boton-crear-tarea">CREAR TAREA</button>
             <a href="tareas_asignadas.php" class="btn btn-info btn-block" role="button">TAREAS ASIGNADAS</a>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
@@ -68,8 +68,8 @@ if (!isset($_SESSION['admin'])) {
 
 
 <!-- MENU DESPLEGABLE CREAR TAREA -->
-<div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
-    <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
+<div class="container-fluid p-4" id="menu_crear_tarea">
+    <h6 class="text-right" id="cierre_crear_tarea">(x)</h6>
     <h2 class="text-center">Nueva Tarea</h2>
     <form action="bbdd/opciones_tareas.php" method="POST">
         <div class="form-group mt-4">
@@ -151,9 +151,8 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MENU DESPLEGABLE MODIFICAR TAREA -->
 
-    <div class="container p-4 borde-derecho borde-inferior" id="menu_desplegable_modificar__">
-        <div class="col-md-12">
-            <h6 class="text-right" id="clic_cierre_modificar__">(x)</h6>
+    <div class="container-fluid p-4" id="menu_modificar_tarea">
+            <h6 class="text-right" id="cierre_modificar_tarea">(x)</h6>
             <h2 class="text-center">Modificar Tarea</h2>
 
             <form action="bbdd/opciones_tareas.php?id=<?= $modificar['id'] ?>" method="POST">
@@ -221,15 +220,13 @@ if (!isset($_SESSION['admin'])) {
                     <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f12']; ?>" name="f12">
                 </div>
 
-                <div class="row mb-4">
+                <div class="row" style="margin-bottom: 100px;">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-info btn-block" name="modificar_tarea">MODIFICAR</button>
                     </div>
                 </div>
 
             </form>
-
-        </div>
     </div>
 
 <?php }; ?>
@@ -248,7 +245,7 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MENU DESPLEGABLE ADJUDICAR TAREA -->
 
-    <div class="container p-4 borde-derecho borde-inferior" id="menu_desplegable_asignar__">
+    <div class="container-fluid p-4" id="menu_desplegable_asignar__">
         <div class="col-md-12">
             <h6 class="text-right" id="clic_cierre_asignar__">(x)</h6>
             <h2 class="text-center">Asignar Tarea</h2>

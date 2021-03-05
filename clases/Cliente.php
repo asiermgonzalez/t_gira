@@ -19,19 +19,19 @@ class Cliente
     //Constructores
     function __construct($id, $nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas)
     {
-        $this->id=$id;
+        $this->id = $id;
         $this->nombre = $nombre;
-        $this->persona_contacto=$persona_contacto;
-        $this->movil=$movil;
+        $this->persona_contacto = $persona_contacto;
+        $this->movil = $movil;
         $this->telefono = $telefono;
         $this->telefono2 = $telefono2;
         $this->email = $email;
         $this->email2 = $email2;
-        $this->direccion=$direccion;
-        $this->cp=$cp;
-        $this->poblacion=$poblacion;
-        $this->provincia=$provincia;
-        $this->notas=$notas;
+        $this->direccion = $direccion;
+        $this->cp = $cp;
+        $this->poblacion = $poblacion;
+        $this->provincia = $provincia;
+        $this->notas = $notas;
     }
 
 
@@ -105,7 +105,7 @@ class Cliente
     {
         $this->email = $email;
     }
-    
+
     public function getEmail2()
     {
         return $this->email2;
@@ -167,16 +167,25 @@ class Cliente
     }
 
     //Funciones del Programador
-    public function crearCliente($nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion){
+    public function crearCliente($nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion)
+    {
 
-        $insertar=mysqli_query($conexion, "INSERT INTO clientes VALUES(NULL, '$nombre', '$persona_contacto', '$movil', '$telefono', '$telefono2', '$email', 
+        $insertar = mysqli_query($conexion, "INSERT INTO clientes VALUES(NULL, '$nombre', '$persona_contacto', '$movil', '$telefono', '$telefono2', '$email', 
         '$email2', '$direccion', '$cp', '$poblacion', '$provincia', '$notas' )");
+
+        if ($insertar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_creado'] = "Se ha creado el cliente";
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_creado_error'] = "ERROR";
+        }
     }
 
-    public function eliminarCliente($id, $conexion){
-        $eliminar=mysqli_query($conexion, "DELETE FROM clientes WHERE id='$id'");
+    public function eliminarCliente($id, $conexion)
+    {
+        $eliminar = mysqli_query($conexion, "DELETE FROM clientes WHERE id='$id'");
     }
-
-
-   
 }

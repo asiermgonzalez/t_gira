@@ -53,11 +53,6 @@ function eliminar_alertas()
         unset($_SESSION['crear_usuario_error']);
     }
 
-    //ALERTA CLIENTE CREADO
-    if (isset($_SESSION['cliente_creado'])) {
-        unset($_SESSION['cliente_creado']);
-    }
-
     //ALERTA CLIENTE ELIMINADO
     if (isset($_SESSION['cliente_eliminado'])) {
         unset($_SESSION['cliente_eliminado']);
@@ -102,12 +97,32 @@ function eliminar_alertas()
     if (isset($_SESSION['usuario_eliminado_error'])) {
         unset($_SESSION['usuario_eliminado_error']);
     }
+
+    //ALERTA CLIENTE CREADO
+    if (isset($_SESSION['cliente_creado'])) {
+        unset($_SESSION['cliente_creado']);
+    }
+
+    //ALERTA CLIENTE CREADO ERROR
+    if (isset($_SESSION['cliente_creado_error'])) {
+        unset($_SESSION['cliente_creado_error']);
+    }
 }
 
 function mostrar_alertas()
 {
-      //ALERTA USUARIO ELIMINADO
-      if (isset($_SESSION['usuario_eliminado'])) {
+    //ALERTA CLIENTE CREADO
+    if (isset($_SESSION['cliente_creado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha creado el cliente</div>";
+    }
+
+    //ALERTA CLIENTE CREADO ERROR
+    if (isset($_SESSION['cliente_creado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido crear el cliente</div>";
+    }
+
+    //ALERTA USUARIO ELIMINADO
+    if (isset($_SESSION['usuario_eliminado'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el usuario</div>";
     }
 
@@ -134,7 +149,6 @@ function mostrar_alertas()
     if (isset($_SESSION['terminar_tarea_error'])) {
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido marcar la tarea como terminada</div>";
     }
-
 
     //ALERTA TAREA CREADA
     if (isset($_SESSION['tarea_creada'])) {
@@ -184,16 +198,6 @@ function mostrar_alertas()
     //ALERTA CREAR USUARIO ERROR
     if (isset($_SESSION['crear_usuario_error'])) {
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido crear el usuario</div>";
-    }
-
-    //ALERTA CLIENTE CREADO
-    if (isset($_SESSION['cliente_creado'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha creado un nuevo cliente</div>";
-    }
-
-    //ALERTA CLIENTE ELIMINADO
-    if (isset($_SESSION['cliente_eliminado'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el cliente seleccionado</div>";
     }
 
     //ALERTA TAREA ASIGNADA ELIMINADA

@@ -62,28 +62,39 @@
     }
 
   
-
+/*
     #boton-desplegar-modificar:active #menu_desplegable_modificar__ {
         display: block;
     }
+*/
+    /*** TAREAS */
 
-    #menu_desplegable_tareas__ {
+    #menu_crear_tarea, #menu_crear_cliente{
+        position: absolute;
+        top:123px;
         display: none;
-        margin-bottom: 100px;
         box-shadow: 3px 3px 9px black;
+        background-color: white;
     }
 
-    #menu_desplegable_modificar__,
-    #menu_desplegable_asignar__ {
-        box-shadow: 3px 3px 9px grey;
-        margin-bottom: 100px;
+    #menu_modificar_cliente,
+    #menu_modificar_tarea{
+        position: absolute;
+        top:123px;
+        box-shadow: 3px 3px 9px black;
+        background-color: white;
     }
+    
 
-    #clic_cierre_tareas__,
-    #clic_cierre_modificar__,
-    #clic_cierre_asignar__ {
+
+
+    #cierre_crear_tarea, #cierre_modificar_tarea, #cierre_crear_cliente, #cierre_modificar_cliente {
         cursor: pointer;
     }
+
+ 
+
+    /*** USUARIOS */
 
     .footer__ {
         background-color: #6c757d !important;

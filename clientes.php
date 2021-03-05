@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin'])) {
 
     <div class="row">
         <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">Crear Cliente</button>
+            <button type="button" class="btn btn-info btn-block" id="boton-crear-cliente">Crear Cliente</button>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">Menú</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
         </div>
@@ -51,8 +51,8 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['email']; ?></td>
                         <td><?= $registro['provincia']; ?></td>                       
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info btn-block" role="button">Modificar</a>
-                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-info btn-block" role="button">Eliminar</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" id="boton-modificar-cliente" role="button">Modificar</a>
+                            <a href="bbdd/opciones_tareas.php?id=<?= $registro['id'] ?>&eliminar_tarea" class="btn btn-info" role="button">Eliminar</a>
                         </td>
                     </tr>
 
@@ -76,9 +76,9 @@ if (!isset($_SESSION['admin'])) {
 
 
 
-<!-- MENU DESPLEGABLENUEVO CLIENTE -->
-<div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
-    <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
+<!-- MENU DESPLEGABLE NUEVO CLIENTE -->
+<div class="container-fluid p-4" id="menu_crear_cliente">
+    <h6 class="text-right" id="cierre_crear_cliente">(x)</h6>
     <h2 class="text-center">Nuevo Cliente</h2>
     <form action="bbdd/opciones_clientes.php" method="POST">
 
@@ -220,7 +220,7 @@ if (!isset($_SESSION['admin'])) {
             <textarea class="form-control" name="notas" cols="30" rows="10"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-info btn-estandar mt-2" name="crear_cliente">Crear</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" style="margin-bottom: 100px;" name="crear_cliente">Crear</button>
 
     </form>
 
@@ -240,10 +240,10 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MENU DESPLEGABLE MODIFICAR TAREA -->
 
-    <div class="container p-4 borde-derecho borde-inferior" id="menu_desplegable_modificar__">
+    <div class="container-fluid p-4" id="menu_modificar_cliente">
         <div class="col-md-12">
-            <h6 class="text-right" id="clic_cierre_modificar__">(x)</h6>
-            <h2 class="text-center">Modificar Tarea</h2>
+            <h6 class="text-right" id="cierre_modificar_cliente">(x)</h6>
+            <h2 class="text-center">Modificar Cliente</h2>
 
             <form action="bbdd/opciones_tareas.php?id=<?= $modificar['id'] ?>" method="POST">
                 <div class="row">
@@ -310,7 +310,7 @@ if (!isset($_SESSION['admin'])) {
                     <input type="text" class="form-control" maxlength="200" value="<?= $modificar['f12']; ?>" name="f12">
                 </div>
 
-                <div class="row mb-4">
+                <div class="row" style="margin-bottom: 100px;">
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-info btn-block" name="modificar_tarea">Modificar</button>
                     </div>
