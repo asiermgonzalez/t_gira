@@ -52,6 +52,24 @@
             $('#menu_modificar_cliente').slideUp();
         });
 
+        //MENU CREAR USUARIO
+        $("#boton-crear-usuario").click(function() {
+            $('#menu_crear_usuario').slideDown(1000);
+        });
+
+        $('#cierre_crear_usuario').click(function() {
+            $('#menu_crear_usuario').slideUp();
+        });
+
+        //MENU MODIFICAR USUARIO
+        $("#boton-modificar-usuario").click(function() {
+            $('#menu_modificar_usuario').slideDown();
+        });
+
+        $('#cierre_modificar_usuario').click(function() {
+            $('#menu_modificar_usuario').slideUp();
+        });
+
 
 
         /** COMENZAR TAREA */

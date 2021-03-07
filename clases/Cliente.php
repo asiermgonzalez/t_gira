@@ -184,8 +184,37 @@ class Cliente
         }
     }
 
+    function modificarCliente($id, $nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion)
+    {
+        $modificar = mysqli_query($conexion, "UPDATE clientes SET nombre='$nombre', persona_contacto='$persona_contacto', movil='$movil', telefono='$telefono', 
+        telefono2='$telefono2', email='$email', email2='$email2', direccion='$direccion', cp='$cp', poblacion='$poblacion', provincia='$provincia', notas='$notas' 
+        WHERE id=$id");
+
+        //Creamos una sesión para el mensaje de alerta
+        if ($modificar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_modificado'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_modificado_error'] = "ERROR";
+        }
+    }
+
     public function eliminarCliente($id, $conexion)
     {
         $eliminar = mysqli_query($conexion, "DELETE FROM clientes WHERE id='$id'");
+
+         //Creamos una sesión para el mensaje de alerta
+         if ($eliminar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_eliminado'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['cliente_eliminado_error'] = "ERROR";
+        }
     }
 }

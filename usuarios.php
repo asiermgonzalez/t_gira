@@ -24,11 +24,11 @@ if (!isset($_SESSION['admin'])) {
 
     <div class="row">
         <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-desplegar">CREAR USUARIO</button>
+            <button type="button" class="btn btn-info btn-block" id="boton-crear-usuario">CREAR USUARIO</button>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 p-4">
             <table class="table table-hover table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
@@ -49,7 +49,7 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['telefono']; ?></td>
                         <td><?= $registro['email']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" role="button">MODIFICAR</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" role="button" id="boton-modificar-usuario">MODIFICAR</a>
                             <a href="bbdd/opciones_usuarios.php?id=<?= $registro['id'] ?>&eliminar_usuario" class="btn btn-info" role="button">ELIMINAR</a>
                         </td>
                     </tr>
@@ -75,8 +75,8 @@ if (!isset($_SESSION['admin'])) {
 
 
 <!-- MENU DESPLEGABLE CREAR USUARIO -->
-<div class="container mt-4 p-4 borde-derecho borde-inferior" id="menu_desplegable_tareas__">
-    <h6 class="text-right" id="clic_cierre_tareas__">(x)</h6>
+<div class="container-fluid p-4" id="menu_crear_usuario">
+    <h6 class="text-right" id="cierre_crear_usuario">(x)</h6>
     <h2 class="text-center">Nuevo Usuario</h2>
     <form action="bbdd/opciones_usuarios.php" method="POST">
 
@@ -140,9 +140,9 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MENU DESPLEGABLE MODIFICAR USUARIO -->
 
-    <div class="container p-4 borde-derecho borde-inferior" id="menu_desplegable_modificar__">
+    <div class="container-fluid p-4" id="menu_modificar_usuario">
         <div class="col-md-12">
-            <h6 class="text-right" id="clic_cierre_modificar__">(x)</h6>
+            <h6 class="text-right" id="cierre_modificar_usuario">(x)</h6>
             <h2 class="text-center">Modificar Usuario</h2>
 
             <form action="bbdd/opciones_usuarios.php?id=<?= $modificar['id'] ?>" method="POST">

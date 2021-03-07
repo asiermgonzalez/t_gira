@@ -79,55 +79,55 @@ if (!isset($_SESSION['admin'])) {
 
         <div class="row mt-2">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f1">
+                <input type="text" class="form-control" placeholder="Función 1" name="f1">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f2">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f3">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f4">
+                <input type="text" class="form-control" placeholder="Función 2" name="f2">
             </div>
         </div>
 
         <div class="row mt-2">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f5">
+                <input type="text" class="form-control" placeholder="Función 3" name="f3">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f6">
-            </div>
-        </div>
-
-        <div class="row mt-2">
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f7">
-            </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f8">
+                <input type="text" class="form-control" placeholder="Función 4" name="f4">
             </div>
         </div>
 
         <div class="row mt-2">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f9">
+                <input type="text" class="form-control" placeholder="Función 5" name="f5">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f10">
+                <input type="text" class="form-control" placeholder="Función 6" name="f6">
             </div>
         </div>
 
         <div class="row mt-2">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f11">
+                <input type="text" class="form-control" placeholder="Función 7" name="f7">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Función" name="f12">
+                <input type="text" class="form-control" placeholder="Función 8" name="f8">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Función 9" name="f9">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Función 10" name="f10">
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Función 11" name="f11">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Función 12" name="f12">
             </div>
         </div>
 

@@ -1,7 +1,11 @@
 <?php
 
+/** FUNCION PARA ELIMINAR LAS ALERTAS */
+
 function eliminar_alertas()
 {
+    /*******************************************TAREAS *********************************/
+
     //ALERTA TAREA CREADA
     if (isset($_SESSION['tarea_creada'])) {
         unset($_SESSION['tarea_creada']);
@@ -42,6 +46,7 @@ function eliminar_alertas()
         unset($_SESSION['tarea_asignada_error']);
     }
 
+    /******************************************USUARIOS *****************************************************/
 
     //ALERTA CREAR USUARIO
     if (isset($_SESSION['crear_usuario'])) {
@@ -98,6 +103,8 @@ function eliminar_alertas()
         unset($_SESSION['usuario_eliminado_error']);
     }
 
+    /************************************************CLIENTES ******************************************************/
+
     //ALERTA CLIENTE CREADO
     if (isset($_SESSION['cliente_creado'])) {
         unset($_SESSION['cliente_creado']);
@@ -107,10 +114,34 @@ function eliminar_alertas()
     if (isset($_SESSION['cliente_creado_error'])) {
         unset($_SESSION['cliente_creado_error']);
     }
+
+     //ALERTA CLIENTE MODIFICADO
+     if (isset($_SESSION['cliente_modificado'])) {
+        unset($_SESSION['cliente_modificado']);
+    }
+
+    //ALERTA CLIENTE MODIFICADO ERROR
+    if (isset($_SESSION['cliente_modificado_error'])) {
+        unset($_SESSION['cliente_modificado_error']);
+    }
+
+     //ALERTA CLIENTE ELIMINADO
+     if (isset($_SESSION['cliente_eliminado'])) {
+        unset($_SESSION['cliente_eliminado']);
+    }
+
+    //ALERTA CLIENTE ELIMINADO ERROR
+    if (isset($_SESSION['cliente_eliminado_error'])) {
+        unset($_SESSION['cliente_eliminado_error']);
+    }
 }
+
+/** FUNCION PARA CREAR Y MOSTRAR ALERTAS */
 
 function mostrar_alertas()
 {
+    /******************************************************* CLIENTES *******************************************************/
+
     //ALERTA CLIENTE CREADO
     if (isset($_SESSION['cliente_creado'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha creado el cliente</div>";
@@ -121,24 +152,28 @@ function mostrar_alertas()
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido crear el cliente</div>";
     }
 
-    //ALERTA USUARIO ELIMINADO
-    if (isset($_SESSION['usuario_eliminado'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el usuario</div>";
+     //ALERTA CLIENTE MODIFICADO
+     if (isset($_SESSION['cliente_modificado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha modificado el cliente</div>";
     }
 
-    //ALERTA USUARIO ELIMINADO ERROR
-    if (isset($_SESSION['usuario_eliminado_error'])) {
-        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido eliminar el usuario</div>";
-    }
-    //ALERTA USUARIO MODIFICADO
-    if (isset($_SESSION['usuario_modificado'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha modificado el usuario</div>";
+    //ALERTA CLIENTE MODIFICADO ERROR
+    if (isset($_SESSION['cliente_modificado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido modificar el cliente</div>";
     }
 
-    //ALERTA USUARIO MODIFICADO ERROR
-    if (isset($_SESSION['usuario_modificado_error'])) {
-        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido modificar el usuario</div>";
+    //ALERTA CLIENTE ELIMINADO
+    if (isset($_SESSION['cliente_eliminado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el cliente</div>";
     }
+
+    //ALERTA CLIENTE ELIMINADO ERROR
+    if (isset($_SESSION['cliente_eliminado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido eliminar el cliente</div>";
+    }
+
+    
+    /********************************************************* TAREAS ********************************************************/
 
     //ALERTA TAREA TERMINADA
     if (isset($_SESSION['terminar_tarea'])) {
@@ -190,6 +225,18 @@ function mostrar_alertas()
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido asignar la tarea</div>";
     }
 
+    //ALERTA TAREA ASIGNADA ELIMINADA
+    if (isset($_SESSION['eliminar_tarea_asignada'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado la tarea</div>";
+    }
+
+    //ALERTA TAREA ASIGNADA ELIMINADA ERROR
+    if (isset($_SESSION['eliminar_tarea_asignada_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Correcto!!</strong> No se ha podido eliminar la tarea</div>";
+    }
+
+    /****************************************************** USUARIOS ***************************************************************/
+
     //ALERTA CREAR USUARIO
     if (isset($_SESSION['crear_usuario'])) {
         echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha creado un nuevo usuario</div>";
@@ -200,13 +247,23 @@ function mostrar_alertas()
         echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido crear el usuario</div>";
     }
 
-    //ALERTA TAREA ASIGNADA ELIMINADA
-    if (isset($_SESSION['eliminar_tarea_asignada'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado la tarea</div>";
+    //ALERTA USUARIO ELIMINADO
+    if (isset($_SESSION['usuario_eliminado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha eliminado el usuario</div>";
     }
 
-    //ALERTA TAREA ASIGNADA ELIMINADA ERROR
-    if (isset($_SESSION['eliminar_tarea_asignada_error'])) {
-        echo "<div class='alert alert-danger mt-4'><strong>Correcto!!</strong> No se ha podido eliminar la tarea</div>";
+    //ALERTA USUARIO ELIMINADO ERROR
+    if (isset($_SESSION['usuario_eliminado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido eliminar el usuario</div>";
     }
+    //ALERTA USUARIO MODIFICADO
+    if (isset($_SESSION['usuario_modificado'])) {
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha modificado el usuario</div>";
+    }
+
+    //ALERTA USUARIO MODIFICADO ERROR
+    if (isset($_SESSION['usuario_modificado_error'])) {
+        echo "<div class='alert alert-danger mt-4'><strong>Ups!!</strong> No se ha podido modificar el usuario</div>";
+    }
+    
 }

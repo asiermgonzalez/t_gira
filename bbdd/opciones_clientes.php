@@ -63,6 +63,9 @@ if (isset($_POST['provincia'])) {
     $provincia = mysqli_real_escape_string($conexion, $_POST['provincia']);
 }
 
+if (isset($_POST['notas'])) {
+    $notas = mysqli_real_escape_string($conexion, $_POST['notas']);
+}
 
 $opcion = 0;
 
@@ -108,7 +111,7 @@ switch ($opcion) {
         //Cerrar la conexión con la bbdd
         $conexion->close();
 
-        //Redirigir al menú del administrador
+        //Redirigir al menú de clientes
         header('Location:../clientes.php');
 
         break;
@@ -116,123 +119,49 @@ switch ($opcion) {
         /*********************************************** MODIFICAR CLIENTE ************************************************/
     case 2:
 
-        $tarea = new Tarea($id, $nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12, $conexion);
+        $cliente = new Cliente($id, $nombre, $persona_contacto, $movil, $telefono1, $telefono2, $email1, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion);
 
-        //LLAMAMOS A LA FUNCION modificarTarea
-        $tarea->modificarTarea(
-            $tarea->getId(),
-            $tarea->getNombre(),
-            $tarea->getF1(),
-            $tarea->getF2(),
-            $tarea->getF3(),
-            $tarea->getF4(),
-            $tarea->getF5(),
-            $tarea->getF6(),
-            $tarea->getF7(),
-            $tarea->getF8(),
-            $tarea->getF9(),
-            $tarea->getF10(),
-            $tarea->getF11(),
-            $tarea->getF12(),
+        //LLAMAMOS A LA FUNCION modificarCliente
+        $cliente->modificarCliente(
+            $cliente->getId(),
+            $cliente->getNombre(),
+            $cliente->getPersona_contacto(),
+            $cliente->getMovil(),
+            $cliente->getTelefono(),
+            $cliente->getTelefono2(),
+            $cliente->getEmail(),
+            $cliente->getEmail2(),
+            $cliente->getDireccion(),
+            $cliente->getCp(),
+            $cliente->getPoblacion(),
+            $cliente->getProvincia(),
+            $cliente->getNotas(),
             $conexion
         );
 
         //CERRAR LA CONEXION
         $conexion->close();
 
-        //Redirigir al menú del administrador
-        header('Location:../tareas.php');
+        //Redirigir al menú de clientes
+        header('Location:../clientes.php');
 
         break;
 
-        /*********************************************** ELIMINAR TAREA ************************************************/
+        /*********************************************** ELIMINAR CLIENTE ************************************************/
     case 3:
 
         $id = $_GET['id'];
 
-        $tarea = new Tarea($id, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        $cliente = new Cliente($id, null, null, null, null, null, null, null, null, null, null, null, null);
 
-        $tarea->eliminarTarea($id, $conexion);
+        $cliente->eliminarCliente($id, $conexion);
 
         //Cerrar la conexión con la bbdd
         $conexion->close();
 
-        //Redirigir al menú del administrador
-        header('Location:../tareas.php');
+        //Redirigir al menú de clientes
+        header('Location:../clientes.php');
 
         break;
 
-        /*********************************************** ASIGNAR TAREA ************************************************/
-    case 4:
-
-        $nombre = $_GET['nombre'];
-        $usuario = $_POST['usuario'];
-        $cliente = $_POST['cliente'];
-
-        $asignar_tarea = mysqli_query($conexion, "INSERT INTO tareas VALUES(NULL, '$usuario', '$nombre', '$cliente', curdate(), 'PENDIENTE')");
-
-        //Creamos una sesión para el mensaje de alerta
-        if ($asignar_tarea) {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['tarea_asignada'] = 'Ok';
-        } else {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['tarea_asignada_error'] = "ERROR";
-        }
-
-        $conexion->close();
-
-        header('Location:../tareas.php');
-
-        break;
-
-        /*********************************************** ELIMINAR TAREA ASIGNADA ************************************************/
-    case 5:
-
-        $id = $_GET['eliminar_tarea_asignada'];
-
-        $eliminar = mysqli_query($conexion, "DELETE FROM tareas WHERE id='$id'");
-
-        //Creamos una sesión para el mensaje de alerta
-        if ($eliminar) {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['eliminar_tarea_asignada'] = 'Ok';
-        } else {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['eliminar_tarea_asignada_error'] = "ERROR";
-        }
-
-        $conexion->close();
-
-        header('Location:../tareas_asignadas.php');
-
-        break;
-
-        /*********************************************** TAREA FINALIZADA *************************************************************/
-    case 6:
-
-        $id = $_GET['id_tarea_finalizada'];
-
-        $finalizar_tarea = mysqli_query($conexion, "UPDATE tareas SET estado='REALIZADO' WHERE id='$id'");
-
-        //Creamos una sesión para el mensaje de alerta
-        if ($finalizar_tarea) {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['terminar_tarea'] = 'Ok';
-        } else {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['terminar_tarea_error'] = "ERROR";
-        }
-
-        $conexion->close();
-
-        header('Location:../menu_usuario.php');
-
-        break;
 }

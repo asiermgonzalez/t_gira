@@ -1,16 +1,16 @@
 <style>
     :root {
         --verdeClaro: rgb(0, 191, 156);
-        --azul: rgb(0,191,230);
+        --azul: rgb(0, 191, 230);
 
     }
 
     #formulario-login__ {
         margin-top: 60px;
-        padding:30px;
+        padding: 30px;
     }
 
-    .btn:hover{
+    .btn:hover {
         box-shadow: 3px 3px 9px grey;
         transition-duration: 200ms;
     }
@@ -18,7 +18,7 @@
     .fondo_verde {
         background-color: var(--verdeClaro) !important;
         color: black !important;
-        
+
     }
 
     #cambiarVerde1,
@@ -61,38 +61,46 @@
         margin-top: -50px;
     }
 
-  
-/*
+
+    /*
     #boton-desplegar-modificar:active #menu_desplegable_modificar__ {
         display: block;
     }
 */
     /*** TAREAS */
 
-    #menu_crear_tarea, #menu_crear_cliente{
+    #menu_crear_tarea,
+    #menu_crear_cliente,
+    #menu_crear_usuario {
         position: absolute;
-        top:123px;
+        top: 123px;
         display: none;
         box-shadow: 3px 3px 9px black;
         background-color: white;
     }
 
     #menu_modificar_cliente,
-    #menu_modificar_tarea{
+    #menu_modificar_tarea,
+    #menu_modificar_usuario {
         position: absolute;
-        top:123px;
+        top: 123px;
         box-shadow: 3px 3px 9px black;
         background-color: white;
     }
-    
 
 
 
-    #cierre_crear_tarea, #cierre_modificar_tarea, #cierre_crear_cliente, #cierre_modificar_cliente {
+
+    #cierre_crear_tarea,
+    #cierre_modificar_tarea,
+    #cierre_crear_cliente,
+    #cierre_modificar_cliente,
+    #cierre_crear_usuario,
+    #cierre_modificar_usuario {
         cursor: pointer;
     }
 
- 
+
 
     /*** USUARIOS */
 
@@ -108,7 +116,7 @@
             width: 100px;
         }
 
-        .cabecera__ h1{
+        .cabecera__ h1 {
             font-size: 20px;
             margin-top: -20px;
 
