@@ -135,6 +135,9 @@ if (!isset($_SESSION['admin'])) {
     $peticion = mysqli_query($conexion, "SELECT * FROM usuarios WHERE id=$id");
     $modificar = mysqli_fetch_assoc($peticion);
 
+    //MOSTRAR LA CONTRASEÑA SIN ENCRIPTAR
+    $password= password_verify($password, $modificar['password']);
+
 ?>
 
 
@@ -171,7 +174,7 @@ if (!isset($_SESSION['admin'])) {
                 </div>
                 <div class="form-group">
                     <label>Contraseña:</label>
-                    <input type="password" class="form-control" maxlength="200" value="<?= $modificar['password']; ?>" name="password">
+                    <input type="password" class="form-control" maxlength="200" value="<?=$password;?>" name="password">
                 </div>
                 <div class="form-group">
                     <label>Teléfono:</label>

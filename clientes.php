@@ -40,7 +40,7 @@ if (!isset($_SESSION['admin'])) {
                     <th>ACCIONES</th>
                 </tr>
                 <?php
-                $sql = "SELECT * FROM clientes";
+                $sql = "SELECT * FROM clientes ORDER BY nombre";
                 $respuesta = mysqli_query($conexion, $sql);
                 while ($registro = mysqli_fetch_assoc($respuesta)) : ?>
                     <tr>
