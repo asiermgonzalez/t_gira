@@ -1,7 +1,7 @@
 <?php include 'includes/head.php'; ?>
 
-<div class="container-fluid bg-secondary cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="logo">
+<div class="container-fluid cabecera__">
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="logo">
     <h1 class="text-center text-light pb-4">Proyecto Final</h1>
 </div>
 

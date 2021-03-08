@@ -40,18 +40,40 @@
         width: 260px;
     }
 
+    /** CONFIGURACION */
+
     .cabecera__ {
         border-bottom: 3px solid <?= $registro['color_borde_cabecera']; ?>;
-        background-color: <?= $registro['color_fondo_cabecera']; ?>;
+        background-color: <?= $registro['color_cabecera']; ?>;
+    }
+
+    .titulo__{
+        color: <?=$registro['color_texto_cabecera'];?> !important;
     }
 
     .borde-inferior {
-        border-bottom: 3px solid <?= $registro['color_borde_cabecera']; ?>;
+        border-bottom: 3px solid <?= $registro['color_cabecera']; ?>;
     }
 
-    .borde-derecho {
-        border-right: 3px solid <?= $registro['color_borde_cabecera']; ?>;
+    body{
+        background-color: <?=$registro['color_cuerpo'];?> !important;
     }
+
+    .footer__ {
+        border-top: 3px solid <?= $registro['color_borde_pie']; ?>;
+        background-color: <?=$registro['color_pie']?> !important;
+    }
+
+    .footer a{
+        text-decoration: none;
+        color: <?=$registro['color_texto_pie'];?> !important;
+    }
+
+    table{
+        background-color: <?=$registro['color_fondo_tabla'];?> !important;
+    }
+
+
 
     .imagen-cabecera__ {
         width: 150px;
@@ -61,12 +83,6 @@
         margin-top: -50px;
     }
 
-
-    /*
-    #boton-desplegar-modificar:active #menu_desplegable_modificar__ {
-        display: block;
-    }
-*/
     /*** TAREAS */
 
     #menu_crear_tarea,
@@ -88,9 +104,6 @@
         background-color: white;
     }
 
-
-
-
     #cierre_crear_tarea,
     #cierre_modificar_tarea,
     #cierre_crear_cliente,
@@ -98,14 +111,6 @@
     #cierre_crear_usuario,
     #cierre_modificar_usuario {
         cursor: pointer;
-    }
-
-
-
-    /*** USUARIOS */
-
-    .footer__ {
-        background-color: #6c757d !important;
     }
 
     /* MEDIA QUERYS */

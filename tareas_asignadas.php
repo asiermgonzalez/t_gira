@@ -12,8 +12,8 @@ if (!isset($_SESSION['admin'])) {
 
 </style>
 
-<div class="container-fluid bg-secondary cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="">
+<div class="container-fluid cabecera__">
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="">
     <h1 class="text-center display-4 text-light pb-4 titulo__">Tareas Asignadas</h1>
 </div>
 
