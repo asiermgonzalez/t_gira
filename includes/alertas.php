@@ -217,7 +217,7 @@ function mostrar_alertas()
 
     //ALERTA TAREA ASIGNADA
     if (isset($_SESSION['tarea_asignada'])) {
-        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha asignadao la tarea</div>";
+        echo "<div class='alert alert-success mt-4'><strong>Correcto!!</strong> Se ha asignado la tarea</div>";
     }
 
     //ALERTA TAREA ASIGNADA ERROR

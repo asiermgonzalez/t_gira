@@ -13,8 +13,8 @@ if (!isset($_SESSION['usuario'])) {
 </style>
 
 <div class="container-fluid bg-secondary cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="">
-    <h1 class="text-center text-light pb-4 titulo__">Clientes</h1>
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="">
+    <h1 class="text-center display-4 pb-4 titulo__">Clientes</h1>
 </div>
 
 <div class="container-fluid mt-4">

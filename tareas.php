@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin'])) {
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="">
-    <h1 class="text-center text-light pb-4 titulo__">Tareas</h1>
+    <h1 class="text-center display-4 pb-4 titulo__">Tareas</h1>
 </div>
 
 <div class="container-fluid mt-4">

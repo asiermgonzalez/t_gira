@@ -2,16 +2,15 @@
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="logo">
-    <h1 class="text-center text-light pb-4">Proyecto Final</h1>
+    <h1 class="text-center display-4 pb-4">Proyecto Final</h1>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 ml-auto mr-auto" id="formulario-login__">
 
-        <h2 class="text-center">Login</h2>
-
-            <form action="bbdd/login.php" method="POST">
+            <form class="p-4" action="bbdd/login.php" method="POST">
+                <h2 class="text-center">Login</h2>
                 <div class="form-group mt-4">
                     <input type="email" class="form-control form-control-lg" placeholder="Usuario" name="email" required>
                 </div>

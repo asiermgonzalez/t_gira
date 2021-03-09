@@ -45,6 +45,7 @@
     .cabecera__ {
         border-bottom: 3px solid <?= $registro['color_borde_cabecera']; ?>;
         background-color: <?= $registro['color_cabecera']; ?>;
+        box-shadow: 3px 3px 9px grey;
     }
 
     .titulo__{
@@ -71,6 +72,8 @@
 
     table{
         background-color: <?=$registro['color_fondo_tabla'];?> !important;
+        box-shadow: 3px 3px 9px grey;
+        padding:10px;
     }
 
 

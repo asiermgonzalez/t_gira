@@ -24,8 +24,8 @@ $datos_cliente=mysqli_fetch_assoc($consulta_cliente);
 </style>
 
 <div class="container-fluid cabecera__">
-    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_jumbotron']; ?>" alt="logo">
-    <h1 class="text-center text-light pb-4"><?= $registro_comenzar_tarea['tarea']; ?></h1>
+    <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="logo">
+    <h1 class="text-center display-4 pb-4"><?= $registro_comenzar_tarea['tarea']; ?></h1>
 </div>
 
 <?php

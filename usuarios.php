@@ -16,7 +16,7 @@ if (!isset($_SESSION['admin'])) {
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="logo">
-    <h1 class="text-center text-light pb-4">Usuarios</h1>
+    <h1 class="text-center display-4 pb-4">Usuarios</h1>
 </div>
 
 
@@ -77,9 +77,9 @@ if (!isset($_SESSION['admin'])) {
 <!-- MENU DESPLEGABLE CREAR USUARIO -->
 <div class="container-fluid p-4" id="menu_crear_usuario">
     <h6 class="text-right" id="cierre_crear_usuario">(x)</h6>
-    <h2 class="text-center">Nuevo Usuario</h2>
-    <form action="bbdd/opciones_usuarios.php" method="POST">
 
+    <form action="bbdd/opciones_usuarios.php" method="POST">
+        <h2 class="text-center">Nuevo Usuario</h2>
         <div class="row">
             <div class="col">
                 <div class="form-group mt-4">
@@ -136,7 +136,7 @@ if (!isset($_SESSION['admin'])) {
     $modificar = mysqli_fetch_assoc($peticion);
 
     //MOSTRAR LA CONTRASEÑA SIN ENCRIPTAR
-    $password= password_verify($password, $modificar['password']);
+    $password = password_verify($password, $modificar['password']);
 
 ?>
 
@@ -146,9 +146,9 @@ if (!isset($_SESSION['admin'])) {
     <div class="container-fluid p-4" id="menu_modificar_usuario">
         <div class="col-md-12">
             <h6 class="text-right" id="cierre_modificar_usuario">(x)</h6>
-            <h2 class="text-center">Modificar Usuario</h2>
 
             <form action="bbdd/opciones_usuarios.php?id=<?= $modificar['id'] ?>" method="POST">
+                <h2 class="text-center">Modificar Usuario</h2>
                 <div class="row">
                     <div class="col">
                         <div class="form-group mt-4">
@@ -174,7 +174,7 @@ if (!isset($_SESSION['admin'])) {
                 </div>
                 <div class="form-group">
                     <label>Contraseña:</label>
-                    <input type="password" class="form-control" maxlength="200" value="<?=$password;?>" name="password">
+                    <input type="password" class="form-control" maxlength="200" value="<?= $password; ?>" name="password">
                 </div>
                 <div class="form-group">
                     <label>Teléfono:</label>

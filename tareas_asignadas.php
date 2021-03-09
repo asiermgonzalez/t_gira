@@ -14,7 +14,7 @@ if (!isset($_SESSION['admin'])) {
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="">
-    <h1 class="text-center display-4 text-light pb-4 titulo__">Tareas Asignadas</h1>
+    <h1 class="text-center display-4 pb-4 titulo__">Tareas Asignadas</h1>
 </div>
 
 <div class="container-fluid mt-4">
@@ -24,7 +24,7 @@ if (!isset($_SESSION['admin'])) {
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-4 mb-4" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-10">
-            <table class="table table-hover table-sm table-responsive-sm">
+            <table class="table table-hover mt-4 table-sm table-responsive-sm">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>USUARIO</th>

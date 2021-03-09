@@ -1,7 +1,7 @@
 <nav class="navbar fixed-bottom footer__">
     <div class="container-fluid">
         <div class="col-md-12">
-            <a class="navbar-brand d-block text-center footer--texto__" href="mailto:asiermgonzalez@outlook.es">Desarrollado por Asier Martín González</a>
+            <a class="navbar-brand d-block text-center text-dark footer--texto__" href="mailto:asiermgonzalez@outlook.es">Desarrollado por Asier Martín González</a>
         </div>
     </div>
 </nav>
