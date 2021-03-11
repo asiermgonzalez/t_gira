@@ -245,9 +245,9 @@ if (!isset($_SESSION['admin'])) {
 
     <!-- MENU DESPLEGABLE ADJUDICAR TAREA -->
 
-    <div class="container-fluid p-4" id="menu_desplegable_asignar__">
+    <div class="container-fluid p-4" id="menu_asignar_tarea">
         <div class="col-md-12">
-            <h6 class="text-right" id="clic_cierre_asignar__">(x)</h6>
+            <h6 class="text-right" id="cierre_asignar_tarea">(x)</h6>
             <h2 class="text-center">Asignar Tarea</h2>
 
             <form action="bbdd/opciones_tareas.php?nombre=<?= $asignar['nombre'] ?>" method="POST">

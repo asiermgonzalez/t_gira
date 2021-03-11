@@ -34,6 +34,12 @@
             $('#menu_modificar_tarea').slideUp();
         });
 
+        //MENU ASIGNAR TAREAS
+        $('#cierre_asignar_tarea').click(function() {
+            $('#menu_asignar_tarea').slideUp();
+        });
+
+
         //MENU CREAR CLIENTE
         $("#boton-crear-cliente").click(function() {
             $('#menu_crear_cliente').slideDown(1000);
@@ -42,7 +48,7 @@
         $('#cierre_crear_cliente').click(function() {
             $('#menu_crear_cliente').slideUp();
         });
-        
+
         //MENU MODIFICAR CLIENTE
         $("#boton-modificar-cliente").click(function() {
             $('#menu_modificar_cliente').slideDown();

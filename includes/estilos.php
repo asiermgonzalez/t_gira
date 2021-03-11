@@ -92,7 +92,7 @@
     #menu_crear_cliente,
     #menu_crear_usuario {
         position: absolute;
-        top: 123px;
+        top: 140px;
         display: none;
         box-shadow: 3px 3px 9px black;
         background-color: white;
@@ -102,13 +102,14 @@
     #menu_modificar_tarea,
     #menu_modificar_usuario {
         position: absolute;
-        top: 123px;
+        top: 140px;
         box-shadow: 3px 3px 9px black;
         background-color: white;
     }
 
     #cierre_crear_tarea,
     #cierre_modificar_tarea,
+    #cierre_asignar_tarea,
     #cierre_crear_cliente,
     #cierre_modificar_cliente,
     #cierre_crear_usuario,

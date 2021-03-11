@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario'])) {
 
 </style>
 
-<div class="container-fluid bg-secondary cabecera__">
+<div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="">
     <h1 class="text-center display-4 pb-4 titulo__">Clientes</h1>
 </div>
