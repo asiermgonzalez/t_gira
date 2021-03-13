@@ -189,7 +189,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info btn-block" name="modificar_usuario">Modificar</button>
+                        <button type="submit" class="btn btn-info btn-block" name="modificar_usuario">MODIFICAR</button>
                     </div>
                 </div>
 

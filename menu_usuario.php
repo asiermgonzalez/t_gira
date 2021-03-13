@@ -48,7 +48,7 @@ if (!isset($_SESSION['usuario'])) {
                         <td><?= $registro['cliente']; ?></td>
                         <td><?= $registro['fecha']; ?></td>
                         <td><?= $registro['estado']; ?></td>
-                        <td><a href="comenzar_tarea.php?id=<?= $registro['id']; ?>" class="btn btn-info" role="button">Comenzar</a>
+                        <td><a href="comenzar_tarea.php?id=<?= $registro['id']; ?>" class="btn btn-info" role="button">COMENZAR</a>
                     </tr>
 
                 <?php

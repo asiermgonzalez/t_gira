@@ -49,8 +49,8 @@ $listar = mysqli_fetch_assoc($lista_tarea)
             <h5><?=$datos_cliente['cp'].' - '.$datos_cliente['poblacion'];?></h5>
             <h5><?=$datos_cliente['provincia'];?></h5>
             <hr>
-            <a href="menu_usuario.php" class="btn btn-info btn-block mt-4 mb-4" role="button">Volver</a>
-            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-2 mb-4" role="button">Cerrar Sesión</a>
+            <a href="menu_usuario.php" class="btn btn-info btn-block mt-4 mb-4" role="button">VOLVER</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-2 mb-4" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-9 p-4">
         <h2 class="text-center">Tarea</h2>
@@ -152,7 +152,7 @@ $listar = mysqli_fetch_assoc($lista_tarea)
 
                 </table>
 
-                <button type="submit" class="btn btn-info btn-estandar mt-2">Terminar Tarea</button> <br>
+                <button type="submit" class="btn btn-info btn-estandar mt-2">TERMINAR TAREA</button> <br>
                
             </form>
         </div>

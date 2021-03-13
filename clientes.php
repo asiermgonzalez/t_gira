@@ -24,9 +24,9 @@ if (!isset($_SESSION['admin'])) {
 
     <div class="row">
         <div class="col-md-3 p-4">
-            <button type="button" class="btn btn-info btn-block" id="boton-crear-cliente">Crear Cliente</button>
-            <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">Menú</a>
-            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">Cerrar Sesión</a>
+            <button type="button" class="btn btn-info btn-block" id="boton-crear-cliente">CREAR CLIENTE</button>
+            <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
+            <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-9 p-4">
             <table class="table table-hover table-sm table-responsive-sm">
@@ -51,8 +51,8 @@ if (!isset($_SESSION['admin'])) {
                         <td><?= $registro['email']; ?></td>
                         <td><?= $registro['provincia']; ?></td>
                         <td>
-                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" id="boton-modificar-cliente" role="button">Modificar</a>
-                            <a href="bbdd/opciones_clientes.php?id=<?= $registro['id'] ?>&eliminar_cliente" class="btn btn-info" role="button">Eliminar</a>
+                            <a href="<?= $_SERVER['PHP_SELF'] . '?id=' . $registro['id'] ?>;" class="btn btn-info" id="boton-modificar-cliente" role="button">MODIFICAR</a>
+                            <a href="bbdd/opciones_clientes.php?id=<?= $registro['id'] ?>&eliminar_cliente" class="btn btn-info" role="button">ELIMINAR</a>
                         </td>
                     </tr>
 
@@ -220,7 +220,7 @@ if (!isset($_SESSION['admin'])) {
             <textarea class="form-control" name="notas" cols="30" rows="10"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-info btn-estandar mt-2" style="margin-bottom: 100px;" name="crear_cliente">Crear</button>
+        <button type="submit" class="btn btn-info btn-estandar mt-2" style="margin-bottom: 100px;" name="crear_cliente">CREAR</button>
 
     </form>
 
@@ -389,7 +389,7 @@ if (!isset($_SESSION['admin'])) {
 
                 <div class="row" style="margin-bottom: 100px;">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-info btn-block" name="modificar_cliente">Modificar</button>
+                        <button type="submit" class="btn btn-info btn-block" name="modificar_cliente">MODIFICAR</button>
                     </div>
                 </div>
 
