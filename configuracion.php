@@ -87,7 +87,7 @@ $registro = mysqli_fetch_assoc($respuesta);
 
                 <div class="row">
                     <div class="col-md-3 mt-4">
-                        <button type="submit" class="btn btn-info btn-block" name="modificar_configuracion">Guardar</button>
+                        <button type="submit" class="btn btn-info btn-block" name="modificar_configuracion">GUARDAR</button>
                     </div>
                 </div>
 
