@@ -62,7 +62,7 @@ if (!isset($_SESSION['admin'])) {
 
 
 <!-- ALERTAS -->
-<div class="container mb-4">
+<div class="container" style="margin-bottom: 220px;">
     <?php
     include 'includes/alertas.php';
     mostrar_alertas();

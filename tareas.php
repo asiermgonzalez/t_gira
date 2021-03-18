@@ -58,7 +58,7 @@ if (!isset($_SESSION['admin'])) {
 
 
 <!-- ALERTAS -->
-<div class="container mt-4">
+<div class="container mt-4" style="margin-bottom:120px;">
     <?php
     include 'includes/alertas.php';
     mostrar_alertas();

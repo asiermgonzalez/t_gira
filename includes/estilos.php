@@ -87,6 +87,9 @@
     }
 
     /*** TAREAS */
+    #menu_asignar_tarea{
+        margin-bottom: 160px !important;
+    }
 
     #menu_crear_tarea,
     #menu_crear_cliente,
