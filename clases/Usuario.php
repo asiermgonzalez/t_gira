@@ -2,7 +2,7 @@
 
 class Usuario{
 
-    //ATRIBUTOS DE CLASE
+    //Atributos de clase
     private $id;
     private $email;
     private $password;
@@ -11,7 +11,9 @@ class Usuario{
     private $telefono;
     private $rol;
 
-    //CONSTRUCTOR
+    /**
+     * Constructor
+     */
     function __construct($id, $email, $password, $nombre, $apellido, $telefono, $rol)
     {
         $this->id=$id;
@@ -23,7 +25,9 @@ class Usuario{
         $this->rol=$rol;
     }
 
-       //GETTERS AND SETTERS
+       /**
+        * Getters and Setters
+        */
        public function getId()
        {
            return $this->id;
@@ -92,14 +96,28 @@ class Usuario{
        {
            $this->rol = $rol;
        }
-   
 
-       //FUNCIONES DEL PROGRAMADOR
+       /**
+        * crearUsuario
+        */
        function crearUsuario($email, $password, $nombre, $apellido, $telefono, $rol, $conexion){
    
            $insertar=mysqli_query($conexion, "INSERT INTO usuarios VALUES(NULL, '$email', '$password', '$nombre', '$apellido', '$telefono', '$rol')");
+
+           if ($insertar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['crear_usuario'] = "Se ha creado el usuario";
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['crear_usuario_error'] = "ERROR";
+        }
        }
 
+       /**
+        * modificarUsuario
+        */
        function modificarUsuario($id, $email, $password, $nombre, $apellido, $telefono, $rol, $conexion)
        {
            $modificar = mysqli_query($conexion, "UPDATE usuarios SET email='$email', password='$password', nombre='$nombre', apellido='$apellido', telefono='$telefono', rol='$rol'  WHERE id=$id");
@@ -116,6 +134,9 @@ class Usuario{
            }
        }
 
+       /**
+        * eliminarUsuario
+        */
        function eliminarUsuario($id, $conexion)
        {
            $eliminar = mysqli_query($conexion, "DELETE FROM usuarios WHERE id='$id'");

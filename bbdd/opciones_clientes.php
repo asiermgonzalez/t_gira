@@ -88,10 +88,10 @@ switch ($opcion) {
         /*********************************************** CREAR CLIENTE ************************************************/
     case 1:
 
-        //CREAMOS UN OBJETO TAREA
+        //CREAMOS UN OBJETO CLIENTE
         $cliente = new Cliente(null, $nombre, $persona_contacto, $movil, $telefono1, $telefono2, $email1, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion);
 
-        //LLAMAMOS A LA FUNCION crearTarea
+        //LLAMAMOS A LA FUNCION crearCliente
         $cliente->crearCliente(
             $cliente->getNombre(),
             $cliente->getPersona_contacto(),

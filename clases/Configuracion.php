@@ -2,7 +2,7 @@
 
 class Configuracion
 {
-    //ATRIBUTOS DE CLASE
+    //Atributos de clase
     private $id;
     private $color_cabecera;
     private $color_texto_cabecera;
@@ -14,7 +14,9 @@ class Configuracion
     private $color_borde_pie;
     private $color_fondo_tabla;
 
-    //CONSTRUCTOR
+    /**
+     * Constructor
+     */
     function __construct($id, $color_cabecera, $color_texto_cabecera, $color_borde_cabecera, $logotipo_cabecera, $color_cuerpo, $color_pie, $color_texto_pie, $color_borde_pie, $color_fondo_tabla)
     {
         $this->id = $id;
@@ -29,7 +31,9 @@ class Configuracion
         $this->color_fondo_tabla=$color_fondo_tabla;
     }
 
-    //GETTERS AND SETTERS
+    /**
+     * Getters and Stters
+     */
     public function getId()
     {
         return $this->id;
@@ -130,9 +134,9 @@ class Configuracion
         $this->color_fondo_tabla = $color_fondo_tabla;
     }
 
-
-    //FUNCIONES DEL PROGRAMADOR
-
+    /**
+     * modificarConfiguracion
+     */
     function modificarConfiguracion($id, $color_cabecera, $color_texto_cabecera, $color_borde_cabecera, $logotipo_cabecera, $color_cuerpo, $color_pie, $color_texto_pie, $color_borde_pie, $color_fondo_tabla, $conexion)
     {
         $modificar = mysqli_query($conexion, "UPDATE configuracion SET 

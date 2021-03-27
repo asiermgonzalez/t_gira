@@ -2,7 +2,7 @@
 
 class Tarea
 {
-    //ATRIBUTOS DE CLASE
+    //Atributos de clase
     private $id;
     private $nombre;
     private $f1;
@@ -18,7 +18,9 @@ class Tarea
     private $f11;
     private $f12;
 
-    //CONSTRUCTOR
+    /**
+     * Constructor
+     */
     function __construct($id, $nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12)
     {
         $this->id = $id;
@@ -37,7 +39,9 @@ class Tarea
         $this->f12 = $f12;
     }
 
-    //GETTERS AND SETTERS
+    /**
+     * Getters and Setters
+     */
     public function getId()
     {
         return $this->id;
@@ -178,8 +182,9 @@ class Tarea
         $this->f12 = $f12;
     }
 
-    //FUNCIONES DEL PROGRAMADOR
-
+    /**
+     * crearTarea
+     */
     function crearTarea($nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12, $conexion)
     {
 
@@ -196,6 +201,28 @@ class Tarea
         }
     }
 
+    /**
+     * modificarTarea
+     */
+    function modificarTarea($id, $nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12, $conexion)
+    {
+        $modificar = mysqli_query($conexion, "UPDATE tarea SET nombre='$nombre', f1='$f1', f2='$f2', f3='$f3', f4='$f4', f5='$f5', f6='$f6', f7='$f7', f8='$f8', f9='$f9', f10='$f10', f11='$f11', f12='$f12' WHERE id=$id");
+
+        //Creamos una sesión para el mensaje de alerta
+        if ($modificar) {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['tarea_modificada'] = 'Ok';
+        } else {
+            session_start();
+            eliminar_alertas();
+            $_SESSION['tarea_modificada_error'] = "ERROR";
+        }
+    }
+
+    /**
+     * eliminarTarea
+     */
     function eliminarTarea($id, $conexion)
     {
         $eliminar = mysqli_query($conexion, "DELETE FROM tarea WHERE id='$id'");
@@ -212,21 +239,7 @@ class Tarea
         }
     }
 
-    function modificarTarea($id, $nombre, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, $f10, $f11, $f12, $conexion)
-    {
-        $modificar = mysqli_query($conexion, "UPDATE tarea SET nombre='$nombre', f1='$f1', f2='$f2', f3='$f3', f4='$f4', f5='$f5', f6='$f6', f7='$f7', f8='$f8', f9='$f9', f10='$f10', f11='$f11', f12='$f12' WHERE id=$id");
-
-        //Creamos una sesión para el mensaje de alerta
-        if ($modificar) {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['tarea_modificada'] = 'Ok';
-        } else {
-            session_start();
-            eliminar_alertas();
-            $_SESSION['tarea_modificada_error'] = "ERROR";
-        }
-    }
+    
 
 
 }

@@ -28,6 +28,13 @@ $registro = mysqli_fetch_assoc($respuesta);
         <div class="col-md-3">
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
+            
+            <!-- ALERTAS -->
+            <?php
+                include 'includes/alertas.php';
+                mostrar_alertas();
+            ?>
+
         </div>
 
         <div class="col-md-9">
@@ -95,21 +102,6 @@ $registro = mysqli_fetch_assoc($respuesta);
         </div>
     </div>
 </div>
-
-
-
-
-<!-- ALERTAS -->
-<div class="container mt-4">
-    <?php
-    include 'includes/alertas.php';
-    mostrar_alertas();
-    ?>
-</div>
-
-
-
-
 
 
 <?php include 'includes/footer.php'; ?>

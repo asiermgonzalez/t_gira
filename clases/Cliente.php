@@ -2,6 +2,8 @@
 
 class Cliente
 {
+
+    //Atributos de clase
     private $id;
     private $nombre;
     private $persona_contacto;
@@ -16,7 +18,9 @@ class Cliente
     private $provincia;
     private $notas;
 
-    //Constructores
+    /**
+     * Constructor
+     */
     function __construct($id, $nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas)
     {
         $this->id = $id;
@@ -35,7 +39,9 @@ class Cliente
     }
 
 
-    //Getters and Setters
+    /**
+     * Getters and Setters
+     */
     public function getId()
     {
         return $this->id;
@@ -166,8 +172,10 @@ class Cliente
         $this->notas = $notas;
     }
 
-    //Funciones del Programador
-    public function crearCliente($nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion)
+    /**
+     * crearCliente
+     */
+    function crearCliente($nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion)
     {
 
         $insertar = mysqli_query($conexion, "INSERT INTO clientes VALUES(NULL, '$nombre', '$persona_contacto', '$movil', '$telefono', '$telefono2', '$email', 
@@ -184,6 +192,7 @@ class Cliente
         }
     }
 
+    /**modificarCliente */
     function modificarCliente($id, $nombre, $persona_contacto, $movil, $telefono, $telefono2, $email, $email2, $direccion, $cp, $poblacion, $provincia, $notas, $conexion)
     {
         $modificar = mysqli_query($conexion, "UPDATE clientes SET nombre='$nombre', persona_contacto='$persona_contacto', movil='$movil', telefono='$telefono', 
@@ -202,6 +211,9 @@ class Cliente
         }
     }
 
+    /**
+     * eliminarCliente
+     */
     public function eliminarCliente($id, $conexion)
     {
         $eliminar = mysqli_query($conexion, "DELETE FROM clientes WHERE id='$id'");

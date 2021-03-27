@@ -22,6 +22,13 @@ if (!isset($_SESSION['admin'])) {
         <div class="col-md-2">
             <a href="tareas.php" class="btn btn-info btn-block mt-4 mb-4" role="button">VOLVER</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block mt-4 mb-4" role="button">CERRAR SESION</a>
+        
+    <!-- ALERTAS -->
+    <?php
+        include 'includes/alertas.php';
+        mostrar_alertas();
+    ?>
+
         </div>
         <div class="col-md-10">
             <table class="table table-hover mt-4 table-sm table-responsive-sm">
@@ -58,15 +65,6 @@ if (!isset($_SESSION['admin'])) {
             </table>
         </div>
     </div>
-</div>
-
-
-<!-- ALERTAS -->
-<div class="container" style="margin-bottom: 220px;">
-    <?php
-    include 'includes/alertas.php';
-    mostrar_alertas();
-    ?>
 </div>
 
 <?php include 'includes/footer.php';

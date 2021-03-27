@@ -26,6 +26,12 @@ if (!isset($_SESSION['usuario'])) {
             <a href="listado_clientes.php" class="btn btn-info btn-block" role="button">LISTADO CLIENTES</a>
             <a href="listado_usuarios.php" class="btn btn-info btn-block" role="button">LISTADO USUARIOS</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
+            <!-- ALERTAS -->
+    <?php
+        include 'includes/alertas.php';
+        mostrar_alertas();
+    ?>
+
         </div>
         <div class="col-md-9">
             <table class="table table-hover table-sm table-responsive-sm">
@@ -57,14 +63,6 @@ if (!isset($_SESSION['usuario'])) {
             </table>
         </div>
     </div>
-</div>
-
-<!-- ALERTAS -->
-<div class="container mt-4">
-    <?php
-    include 'includes/alertas.php';
-    mostrar_alertas();
-    ?>
 </div>
 
 <?php include 'includes/footer.php'; ?>

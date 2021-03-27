@@ -24,7 +24,7 @@ if (!isset($_SESSION['usuario'])) {
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
         </div>
         <div class="col-md-9">
-            <table class="table table-hover table-sm table-responsive-sm">
+            <table class="table table-hover table-sm table-responsive-sm" style="margin-bottom: 120px;">
                 <tr class="bg-dark text-light">
                     <th>ID</th>
                     <th>NOMBRE</th>
@@ -50,15 +50,6 @@ if (!isset($_SESSION['usuario'])) {
             </table>
         </div>
     </div>
-</div>
-
-
-<!-- ALERTAS -->
-<div class="container mb-4">
-    <?php
-    include 'includes/alertas.php';
-    mostrar_alertas();
-    ?>
 </div>
 
 <?php include 'includes/footer.php';

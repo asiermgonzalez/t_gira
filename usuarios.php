@@ -27,6 +27,13 @@ if (!isset($_SESSION['admin'])) {
             <button type="button" class="btn btn-info btn-block" id="boton-crear-usuario">CREAR USUARIO</button>
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
+      
+            <!-- ALERTAS -->
+        <?php
+            include 'includes/alertas.php'; 
+            mostrar_alertas();
+        ?>
+
         </div>
         <div class="col-md-9 p-4">
             <table class="table table-hover table-sm table-responsive-sm">
@@ -62,16 +69,6 @@ if (!isset($_SESSION['admin'])) {
     </div>
 
 </div>
-
-
-<!-- ALERTAS -->
-<div class="container mt-4">
-    <?php
-    include 'includes/alertas.php';
-    mostrar_alertas();
-    ?>
-</div>
-
 
 
 <!-- MENU DESPLEGABLE CREAR USUARIO -->
