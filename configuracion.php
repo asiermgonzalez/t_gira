@@ -35,6 +35,8 @@ $registro = mysqli_fetch_assoc($respuesta);
                 mostrar_alertas();
             ?>
 
+<script>desactivarAlert();</script>
+
         </div>
 
         <div class="col-md-9">

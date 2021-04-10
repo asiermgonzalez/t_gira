@@ -29,8 +29,11 @@ $registro = mysqli_fetch_assoc($consulta);
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<?php include 'includes/estilos.php'; ?>
+    <?php include 'includes/estilos.php'; ?>
+
+    <script src="js/principal.js"></script>
 
 </head>
 
 <body>
+

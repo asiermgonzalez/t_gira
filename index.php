@@ -2,7 +2,7 @@
 
 <div class="container-fluid cabecera__">
     <img class="imagen-cabecera__" src="imagenes/<?= $registro['logotipo_cabecera']; ?>" alt="logo">
-    <h1 class="text-center display-4 pb-4">Proyecto Final</h1>
+    <h1 class="text-center display-4 pb-4">t_GIRA</h1>
 </div>
 
 <div class="container">

@@ -89,6 +89,7 @@
     /*** TAREAS */
     #menu_asignar_tarea{
         margin-bottom: 160px !important;
+        margin-top: -100px;
     }
 
     #menu_crear_tarea,
@@ -118,6 +119,11 @@
     #cierre_crear_usuario,
     #cierre_modificar_usuario {
         cursor: pointer;
+    }
+
+    /*** ALERTAS */
+    .desactivarAlert{
+        display: none;
     }
 
     /* MEDIA QUERYS */

@@ -32,6 +32,8 @@ if (!isset($_SESSION['usuario'])) {
         mostrar_alertas();
     ?>
 
+    <script>desactivarAlert();</script>
+
         </div>
         <div class="col-md-9">
             <table class="table table-hover table-sm table-responsive-sm">

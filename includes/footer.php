@@ -12,8 +12,8 @@
 <?php $conexion->close(); ?>
 
 
-<!-- EFECTOS JQUERY -->
 
+<!-- EFECTOS JQUERY -->
 <script>
     //Menú desplegable tareas.php
     $(document).ready(function() {

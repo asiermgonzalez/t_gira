@@ -28,6 +28,7 @@ if (!isset($_SESSION['admin'])) {
         include 'includes/alertas.php';
         mostrar_alertas();
     ?>
+    <script>desactivarAlert();</script>
 
         </div>
         <div class="col-md-10">

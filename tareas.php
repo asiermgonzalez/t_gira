@@ -26,10 +26,13 @@ if (!isset($_SESSION['admin'])) {
             <a href="menu_administrador.php" class="btn btn-info btn-block" role="button">MENU</a>
             <a href="bbdd/cerrar_sesion.php" class="btn btn-danger btn-block" role="button">CERRAR SESION</a>
             <!-- ALERTAS -->
+
     <?php
         include 'includes/alertas.php';
         mostrar_alertas();
     ?>
+    
+    <script>desactivarAlert();</script>
 
         </div>
         <div class="col-md-9 mt-4">
@@ -70,7 +73,7 @@ if (!isset($_SESSION['admin'])) {
     <form action="bbdd/opciones_tareas.php" method="POST">
         <div class="form-group mt-4">
             <label>Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre" required>
+            <input type="text" class="form-control" placeholder="Nombre tarea" name="nombre" required autofocus>
         </div>
 
         <div class="row mt-2">
@@ -162,7 +165,7 @@ if (!isset($_SESSION['admin'])) {
                     <div class="col">
                         <div class="form-group mt-4">
                             <label>Nombre tarea:</label>
-                            <input type="text" class="form-control" placeholder="Nombre de la tarea" name="nombre" value="<?= $modificar['nombre']; ?>" required>
+                            <input type="text" class="form-control" placeholder="Nombre de la tarea" name="nombre" value="<?= $modificar['nombre']; ?>" required autofocus>
                         </div>
                     </div>
                 </div>
@@ -251,7 +254,7 @@ if (!isset($_SESSION['admin'])) {
                     <div class="col-md-4 col-xm-12">
                         <div class="form-group">
                             <label>Nombre tarea:</label>
-                            <input type="text" class="form-control" placeholder="Nombre de la tarea" name="nombre" value="<?= $asignar['nombre']; ?>" disabled>
+                            <input type="text" class="form-control" placeholder="Nombre de la tarea" name="nombre" value="<?= $asignar['nombre']; ?>" disabled autofocus>
                         </div>
                     </div>
                     <div class="col-md-4 col-xm-12">
